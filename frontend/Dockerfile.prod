@@ -1,0 +1,46 @@
+# syntax=docker/dockerfile:1
+
+# Multi-platform support: linux/amd64, linux/arm64
+# Alpine Linux base image supports both x86_64 and ARM64 (Graviton)
+FROM node:20-alpine AS deps
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+
+FROM node:20-alpine AS builder
+WORKDIR /app
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+
+# Accept build argument for API URL
+ARG NEXT_PUBLIC_API_URL
+ENV NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
+
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+
+# Build Next.js app with the API URL baked in
+RUN npm run build
+
+FROM node:20-alpine AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+
+# Install production dependencies (omitting dev)
+COPY package*.json ./
+RUN npm ci --omit=dev
+
+# Copy build artifacts
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/next.config.ts ./next.config.ts
+COPY --from=builder /app/node_modules ./node_modules
+
+# Copy entrypoint script (now simplified)
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh
+
+EXPOSE 3000
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["npm", "run", "start"]
