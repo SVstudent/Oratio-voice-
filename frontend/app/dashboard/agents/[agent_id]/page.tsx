@@ -18,7 +18,10 @@ import {
   TextTestingInterface,
   ApiDocumentation,
 } from "@/components/agent-testing"
+import AgentAnalyticsTab from "@/components/agent-testing/AgentAnalyticsTab"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
+// import { useCopilotReadable } from "@copilotkit/react-core"
+// TODO: Re-enable when CopilotKit agent is configured in cloud dashboard
 
 export default function AgentDetailPage() {
   const params = useParams()
@@ -31,6 +34,12 @@ export default function AgentDetailPage() {
   const [error, setError] = useState<string | null>(null)
   const [actorId] = useState(`test-user-${Date.now()}`)
   const [sessionId] = useState(`test-session-${Date.now()}`)
+
+  // TODO: Re-enable useCopilotReadable when CopilotKit agent is configured
+  // useCopilotReadable({
+  //   description: "The current cold outreach script being viewed",
+  //   value: agent ? { name: agent.agent_name, script: agent.sop, target_audience: agent.knowledge_base_description } : null,
+  // })
 
   // Load agent data
   useEffect(() => {
@@ -61,7 +70,7 @@ export default function AgentDetailPage() {
       case "paused":
         return "bg-gray-500/10 text-gray-500 border-gray-500/20"
       default:
-        return "bg-neutral-500/10 text-neutral-500 border-neutral-500/20"
+        return "bg-neutral-500/10 text-gray-400 border-neutral-500/20"
     }
   }
 
@@ -95,21 +104,21 @@ export default function AgentDetailPage() {
     <DashboardLayout>
       <div className="flex flex-col h-full overflow-hidden">
         {/* Header - stays the same */}
-        <div className="border-b border-neutral-800 bg-neutral-900/50 backdrop-blur-sm">
+        <div className="border-b border-blue-200 bg-blue-50/50 backdrop-blur-sm">
           <div className="p-6 md:p-8">
             <Button
               variant="ghost"
               onClick={() => router.push("/dashboard/agents")}
-              className="mb-4 text-neutral-400 hover:text-white"
+              className="mb-4 text-gray-500 hover:text-blue-600"
             >
               <IconArrowLeft className="h-4 w-4 mr-2" />
               Back to Agents
             </Button>
             <div className="flex items-center justify-between">
               <div>
-                <h1 className="text-3xl font-bold text-white">{agent.agent_name}</h1>
-                <p className="text-neutral-400 mt-1">
-                  {agent.agent_type === "voice" ? "Voice Agent" : "Text Agent"}
+                <h1 className="text-3xl font-bold text-gray-900">{agent.agent_name}</h1>
+                <p className="text-gray-500 mt-1">
+                  {agent.agent_type === "voice" ? "Voice Outreach Agent" : "Text Outreach Agent"}
                 </p>
               </div>
               <Badge className={cn("border", getStatusColor(agent.status))}>
@@ -130,12 +139,15 @@ export default function AgentDetailPage() {
             {/* Testing Interface - Tabbed */}
             {agent.status === "active" ? (
               <Tabs defaultValue="voice" className="w-full">
-                <TabsList className="grid w-full grid-cols-2 mb-6">
+                <TabsList className="grid w-full grid-cols-3 mb-6">
                   <TabsTrigger value="voice">
-                    Voice Testing
+                    Voice Test
                   </TabsTrigger>
                   <TabsTrigger value="text">
-                    Text Testing
+                    Text Test
+                  </TabsTrigger>
+                  <TabsTrigger value="analytics">
+                    Analytics
                   </TabsTrigger>
                 </TabsList>
 
@@ -156,14 +168,18 @@ export default function AgentDetailPage() {
                     sessionId={sessionId}
                   />
                 </TabsContent>
+
+                <TabsContent value="analytics" className="mt-0">
+                  <AgentAnalyticsTab agent={agent} />
+                </TabsContent>
               </Tabs>
             ) : (
-              <Card className="bg-neutral-900 border-neutral-800 p-6">
+              <Card className="bg-blue-50 border-blue-200 p-6">
                 <div className="text-center py-8">
-                  <p className="text-neutral-400 mb-2">
+                  <p className="text-gray-500 mb-2">
                     Agent is not active yet. Current status: <span className="font-semibold">{agent.status}</span>
                   </p>
-                  <p className="text-sm text-neutral-500">
+                  <p className="text-sm text-gray-400">
                     Please wait for the agent to be deployed before testing.
                   </p>
                 </div>

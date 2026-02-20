@@ -719,7 +719,7 @@ curl -X POST "${apiEndpoint}/chat/${agentId}/user_123/session_456" \\
 
   return (
     <Collapsible open={isOpen} onOpenChange={setIsOpen}>
-      <Card className="bg-neutral-900/50 border-neutral-800/50 overflow-hidden">
+      <Card className="bg-blue-50/50 border-blue-200/50 overflow-hidden">
         <CollapsibleTrigger className="w-full">
           <div className="flex items-center justify-between p-6 hover:bg-neutral-800/30 transition-colors">
             <div className="flex items-center gap-3">
@@ -727,36 +727,36 @@ curl -X POST "${apiEndpoint}/chat/${agentId}/user_123/session_456" \\
                 <IconCode className="h-5 w-5 text-accent" />
               </div>
               <div className="text-left">
-                <h3 className="text-lg font-semibold text-white">How to Use This Agent</h3>
-                <p className="text-sm text-neutral-400">
+                <h3 className="text-lg font-semibold text-gray-900">How to Use This Agent</h3>
+                <p className="text-sm text-gray-500">
                   Integration examples for Python, JavaScript, and more
                 </p>
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <Badge className="bg-neutral-800/50 text-neutral-300 border-neutral-700/50">
+              <Badge className="bg-blue-100/50 text-gray-600 border-blue-200">
                 API Documentation
               </Badge>
               {isOpen ? (
-                <IconChevronUp className="h-5 w-5 text-neutral-400" />
+                <IconChevronUp className="h-5 w-5 text-gray-500" />
               ) : (
-                <IconChevronDown className="h-5 w-5 text-neutral-400" />
+                <IconChevronDown className="h-5 w-5 text-gray-500" />
               )}
             </div>
           </div>
         </CollapsibleTrigger>
 
         <CollapsibleContent>
-          <div className="border-t border-neutral-800/50 p-6 space-y-8">
+          <div className="border-t border-blue-200/50 p-6 space-y-8">
             {/* Overview */}
             <div className="space-y-3">
               <div className="flex items-center gap-2">
                 <div className="h-1 w-1 rounded-full bg-accent" />
-                <h4 className="text-sm font-semibold text-white uppercase tracking-wider">
+                <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">
                   Overview
                 </h4>
               </div>
-              <p className="text-neutral-300 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed">
                 This agent provides two integration methods: <span className="text-accent font-medium">REST API for text chat</span> and{" "}
                 <span className="text-accent font-medium">WebSocket for voice interactions</span>. Both require API key authentication
                 which you can generate from the API Keys page.
@@ -767,22 +767,22 @@ curl -X POST "${apiEndpoint}/chat/${agentId}/user_123/session_456" \\
             <div className="space-y-4">
               <div className="flex items-center gap-2">
                 <div className="h-1 w-1 rounded-full bg-accent" />
-                <h4 className="text-sm font-semibold text-white uppercase tracking-wider">
+                <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">
                   Authentication
                 </h4>
               </div>
-              <div className="bg-neutral-950/50 border border-neutral-800/50 rounded-lg p-4">
-                <p className="text-sm text-neutral-300 mb-3">
+              <div className="bg-white/50 border border-blue-200/50 rounded-lg p-4">
+                <p className="text-sm text-gray-600 mb-3">
                   All API requests require authentication using an API key. Include your key in the request:
                 </p>
-                <ul className="space-y-2 text-sm text-neutral-400">
+                <ul className="space-y-2 text-sm text-gray-500">
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-0.5">•</span>
-                    <span><strong className="text-neutral-300">REST API:</strong> Use <code className="px-1.5 py-0.5 rounded bg-neutral-900 text-accent text-xs">X-API-Key</code> header</span>
+                    <span><strong className="text-gray-600">REST API:</strong> Use <code className="px-1.5 py-0.5 rounded bg-blue-50 text-accent text-xs">X-API-Key</code> header</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-accent mt-0.5">•</span>
-                    <span><strong className="text-neutral-300">WebSocket:</strong> Pass as query parameter <code className="px-1.5 py-0.5 rounded bg-neutral-900 text-accent text-xs">?api_key=your_key</code></span>
+                    <span><strong className="text-gray-600">WebSocket:</strong> Pass as query parameter <code className="px-1.5 py-0.5 rounded bg-blue-50 text-accent text-xs">?api_key=your_key</code></span>
                   </li>
                 </ul>
               </div>
@@ -792,12 +792,12 @@ curl -X POST "${apiEndpoint}/chat/${agentId}/user_123/session_456" \\
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <IconMessageCircle className="h-5 w-5 text-accent" />
-                <h4 className="text-lg font-semibold text-white">Text Chat API</h4>
+                <h4 className="text-lg font-semibold text-gray-900">Text Chat API</h4>
               </div>
               
-              <div className="bg-neutral-950/50 border border-neutral-800/50 rounded-lg p-4 space-y-2">
+              <div className="bg-white/50 border border-blue-200/50 rounded-lg p-4 space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium text-neutral-300">Endpoint</span>
+                  <span className="text-sm font-medium text-gray-600">Endpoint</span>
                   <Badge className="bg-green-500/10 text-green-400 border-green-500/20">POST</Badge>
                 </div>
                 <code className="block text-sm text-accent break-all">
@@ -806,7 +806,7 @@ curl -X POST "${apiEndpoint}/chat/${agentId}/user_123/session_456" \\
               </div>
 
               <Tabs defaultValue="python" className="w-full">
-                <TabsList className="grid w-full grid-cols-4 bg-neutral-900/50 border border-neutral-800/50">
+                <TabsList className="grid w-full grid-cols-4 bg-blue-50/50 border border-blue-200/50">
                   <TabsTrigger value="python" className="flex items-center gap-2">
                     <LanguageIcon language="python" />
                     <span>Python</span>
@@ -863,12 +863,12 @@ curl -X POST "${apiEndpoint}/chat/${agentId}/user_123/session_456" \\
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <IconMicrophone className="h-5 w-5 text-accent" />
-                <h4 className="text-lg font-semibold text-white">Voice WebSocket API</h4>
+                <h4 className="text-lg font-semibold text-gray-900">Voice WebSocket API</h4>
               </div>
               
-              <div className="bg-neutral-950/50 border border-neutral-800/50 rounded-lg p-4 space-y-2">
+              <div className="bg-white/50 border border-blue-200/50 rounded-lg p-4 space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium text-neutral-300">Endpoint</span>
+                  <span className="text-sm font-medium text-gray-600">Endpoint</span>
                   <Badge className="bg-blue-500/10 text-blue-400 border-blue-500/20">WebSocket</Badge>
                 </div>
                 <code className="block text-sm text-accent break-all">
@@ -883,7 +883,7 @@ curl -X POST "${apiEndpoint}/chat/${agentId}/user_123/session_456" \\
               </div>
 
               <Tabs defaultValue="python" className="w-full">
-                <TabsList className="grid w-full grid-cols-3 bg-neutral-900/50 border border-neutral-800/50">
+                <TabsList className="grid w-full grid-cols-3 bg-blue-50/50 border border-blue-200/50">
                   <TabsTrigger value="python" className="flex items-center gap-2">
                     <LanguageIcon language="python" />
                     <span>Python</span>
@@ -906,7 +906,7 @@ curl -X POST "${apiEndpoint}/chat/${agentId}/user_123/session_456" \\
                   />
                   <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-3">
                     <p className="text-xs text-blue-200">
-                      <strong>Dependencies:</strong> <code className="px-1.5 py-0.5 rounded bg-neutral-900 text-accent ml-1">pip install websockets pyaudio</code>
+                      <strong>Dependencies:</strong> <code className="px-1.5 py-0.5 rounded bg-blue-50 text-accent ml-1">pip install websockets pyaudio</code>
                     </p>
                   </div>
                 </TabsContent>
@@ -927,7 +927,7 @@ curl -X POST "${apiEndpoint}/chat/${agentId}/user_123/session_456" \\
                   />
                   <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-3">
                     <p className="text-xs text-blue-200">
-                      <strong>Dependencies:</strong> <code className="px-1.5 py-0.5 rounded bg-neutral-900 text-accent ml-1">pip install streamlit websockets pyaudio</code>
+                      <strong>Dependencies:</strong> <code className="px-1.5 py-0.5 rounded bg-blue-50 text-accent ml-1">pip install streamlit websockets pyaudio</code>
                     </p>
                   </div>
                   <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-lg p-3">
@@ -943,38 +943,38 @@ curl -X POST "${apiEndpoint}/chat/${agentId}/user_123/session_456" \\
             <div className="space-y-4">
               <div className="flex items-center gap-2">
                 <div className="h-1 w-1 rounded-full bg-accent" />
-                <h4 className="text-sm font-semibold text-white uppercase tracking-wider">
+                <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">
                   Path Parameters
                 </h4>
               </div>
               
               <div className="grid gap-3">
-                <div className="bg-neutral-950/50 border border-neutral-800/50 rounded-lg p-4">
+                <div className="bg-white/50 border border-blue-200/50 rounded-lg p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <code className="text-accent text-sm">{`{agent_id}`}</code>
-                    <Badge className="text-xs bg-neutral-800/50 text-neutral-300 border-neutral-700/50">Required</Badge>
+                    <Badge className="text-xs bg-blue-100/50 text-gray-600 border-blue-200">Required</Badge>
                   </div>
-                  <p className="text-sm text-neutral-400">
-                    Your agent's unique identifier: <code className="px-1.5 py-0.5 rounded bg-neutral-900 text-accent text-xs">{agentId}</code>
+                  <p className="text-sm text-gray-500">
+                    Your agent's unique identifier: <code className="px-1.5 py-0.5 rounded bg-blue-50 text-accent text-xs">{agentId}</code>
                   </p>
                 </div>
 
-                <div className="bg-neutral-950/50 border border-neutral-800/50 rounded-lg p-4">
+                <div className="bg-white/50 border border-blue-200/50 rounded-lg p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <code className="text-accent text-sm">{`{actor_id}`}</code>
-                    <Badge className="text-xs bg-neutral-800/50 text-neutral-300 border-neutral-700/50">Required</Badge>
+                    <Badge className="text-xs bg-blue-100/50 text-gray-600 border-blue-200">Required</Badge>
                   </div>
-                  <p className="text-sm text-neutral-400">
+                  <p className="text-sm text-gray-500">
                     Unique identifier for the user/actor. Used for conversation isolation and tracking.
                   </p>
                 </div>
 
-                <div className="bg-neutral-950/50 border border-neutral-800/50 rounded-lg p-4">
+                <div className="bg-white/50 border border-blue-200/50 rounded-lg p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <code className="text-accent text-sm">{`{session_id}`}</code>
-                    <Badge className="text-xs bg-neutral-800/50 text-neutral-300 border-neutral-700/50">Required</Badge>
+                    <Badge className="text-xs bg-blue-100/50 text-gray-600 border-blue-200">Required</Badge>
                   </div>
-                  <p className="text-sm text-neutral-400">
+                  <p className="text-sm text-gray-500">
                     Unique identifier for the conversation session. The same session_id maintains conversation context.
                   </p>
                 </div>
@@ -982,14 +982,14 @@ curl -X POST "${apiEndpoint}/chat/${agentId}/user_123/session_456" \\
             </div>
 
             {/* Additional Resources */}
-            <div className="space-y-3 pt-4 border-t border-neutral-800/50">
+            <div className="space-y-3 pt-4 border-t border-blue-200/50">
               <div className="flex items-center gap-2">
                 <div className="h-1 w-1 rounded-full bg-accent" />
-                <h4 className="text-sm font-semibold text-white uppercase tracking-wider">
+                <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wider">
                   Additional Resources
                 </h4>
               </div>
-              <ul className="space-y-2 text-sm text-neutral-400">
+              <ul className="space-y-2 text-sm text-gray-500">
                 <li className="flex items-start gap-2">
                   <span className="text-accent mt-0.5">•</span>
                   <span>Generate API keys from the <a href="/dashboard/api-keys" className="text-accent hover:underline">API Keys</a> page</span>

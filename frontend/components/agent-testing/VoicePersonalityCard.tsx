@@ -17,18 +17,18 @@ export function VoicePersonalityCard({
     'No personality instructions provided';
 
   return (
-    <Card className="bg-neutral-900 border-neutral-800">
+    <Card className="bg-blue-50 border-blue-200">
       <div className="flex items-center gap-2 mb-4 px-6 pt-6">
         <IconMicrophone className="h-5 w-5 text-accent" />
-        <h2 className="text-lg font-semibold text-white">Voice Personality</h2>
+        <h2 className="text-lg font-semibold text-gray-900">Voice Personality</h2>
       </div>
 
-      <Separator className="bg-neutral-800" />
+      <Separator className="bg-blue-100" />
       <div className="p-6">
-        <h4 className="text-lg font-semibold text-white mb-4">
+        <h4 className="text-lg font-semibold text-gray-900 mb-4">
           Personality Instructions
         </h4>
-        <div className="text-sm text-white bg-neutral-950 border border-neutral-800 rounded-lg p-4 whitespace-pre-wrap break-words">
+        <div className="text-sm text-gray-900 bg-white border border-blue-200 rounded-lg p-4 whitespace-pre-wrap break-words">
           {instructions}
         </div>
       </div>

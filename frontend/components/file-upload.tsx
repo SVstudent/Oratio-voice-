@@ -64,7 +64,7 @@ const UploadIllustration = () => (
         cx="50"
         cy="50"
         r="45"
-        className="stroke-gray-200 dark:stroke-gray-700"
+        className="stroke-gray-200"
         strokeWidth="2"
         strokeDasharray="4 4"
       >
@@ -80,7 +80,7 @@ const UploadIllustration = () => (
 
       <path
         d="M30 35H70C75 35 75 40 75 40V65C75 70 70 70 70 70H30C25 70 25 65 25 65V40C25 35 30 35 30 35Z"
-        className="fill-blue-100 dark:fill-blue-900/30 stroke-blue-500 dark:stroke-blue-400"
+        className="fill-blue-100 stroke-blue-500"
         strokeWidth="2"
       >
         <animate
@@ -96,7 +96,7 @@ const UploadIllustration = () => (
 
       <path
         d="M30 35C30 35 35 35 40 35C45 35 45 30 50 30C55 30 55 35 60 35C65 35 70 35 70 35"
-        className="stroke-blue-500 dark:stroke-blue-400"
+        className="stroke-blue-500"
         strokeWidth="2"
         fill="none"
       />
@@ -107,7 +107,7 @@ const UploadIllustration = () => (
           y1="45"
           x2="50"
           y2="60"
-          className="stroke-blue-500 dark:stroke-blue-400"
+          className="stroke-blue-500"
           strokeWidth="2"
           strokeLinecap="round"
         >
@@ -115,7 +115,7 @@ const UploadIllustration = () => (
         </line>
         <polyline
           points="42,52 50,45 58,52"
-          className="stroke-blue-500 dark:stroke-blue-400"
+          className="stroke-blue-500"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -405,13 +405,13 @@ export default function FileUpload({
       role="complementary"
       aria-label="File upload"
     >
-      <div className="group relative w-full rounded-xl bg-white dark:bg-black ring-1 ring-gray-200 dark:ring-white/10 p-0.5">
+      <div className="group relative w-full rounded-xl bg-white ring-1 ring-gray-200 p-0.5">
         <div className="absolute inset-x-0 -top-px h-px w-full bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />
 
-        <div className="relative w-full rounded-[10px] bg-gray-50/50 dark:bg-white/[0.02] p-1.5">
+        <div className="relative w-full rounded-[10px] bg-gray-50/50 p-1.5">
           <div
             className={cn(
-              "relative mx-auto w-full overflow-hidden rounded-lg border border-gray-100 dark:border-white/[0.08] bg-white dark:bg-black/50",
+              "relative mx-auto w-full overflow-hidden rounded-lg border border-gray-100 bg-white",
               error ? "border-red-500/50" : "",
             )}
           >
@@ -453,10 +453,10 @@ export default function FileUpload({
                     </div>
 
                     <div className="text-center space-y-1.5 mb-4">
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white tracking-tight">
+                      <h3 className="text-lg font-semibold text-gray-900 tracking-tight">
                         Drag and drop or
                       </h3>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                      <p className="text-xs text-gray-500">
                         {acceptedFileTypes?.length
                           ? `${acceptedFileTypes
                               .map((t) => t.split("/")[1])
@@ -470,13 +470,13 @@ export default function FileUpload({
                     <button
                       type="button"
                       onClick={triggerFileInput}
-                      className="w-4/5 flex items-center justify-center gap-2 rounded-lg bg-gray-100 dark:bg-white/10 px-4 py-2.5 text-sm font-semibold text-gray-900 dark:text-white transition-all duration-200 hover:bg-gray-200 dark:hover:bg-white/20 group"
+                      className="w-4/5 flex items-center justify-center gap-2 rounded-lg bg-gray-100 px-4 py-2.5 text-sm font-semibold text-gray-900 transition-all duration-200 hover:bg-gray-200 group"
                     >
                       <span>Upload File</span>
                       <UploadCloud className="w-4 h-4 group-hover:scale-110 transition-transform duration-200" />
                     </button>
 
-                    <p className="mt-3 text-xs text-gray-500 dark:text-gray-400">or drag and drop your file here</p>
+                    <p className="mt-3 text-xs text-gray-500">or drag and drop your file here</p>
 
                     <input
                       ref={fileInputRef}
@@ -500,9 +500,9 @@ export default function FileUpload({
                     </div>
 
                     <div className="text-center space-y-1.5 mb-4">
-                      <h3 className="text-sm font-semibold text-gray-900 dark:text-white truncate">{file?.name}</h3>
+                      <h3 className="text-sm font-semibold text-gray-900 truncate">{file?.name}</h3>
                       <div className="flex items-center justify-center gap-2 text-xs">
-                        <span className="text-gray-500 dark:text-gray-400">{formatBytes(file?.size || 0)}</span>
+                        <span className="text-gray-500">{formatBytes(file?.size || 0)}</span>
                         <span className="font-medium text-blue-500">{Math.round(progress)}%</span>
                       </div>
                     </div>
@@ -510,7 +510,7 @@ export default function FileUpload({
                     <button
                       onClick={resetState}
                       type="button"
-                      className="w-4/5 flex items-center justify-center gap-2 rounded-lg bg-gray-100 dark:bg-white/10 px-4 py-2.5 text-sm font-semibold text-gray-900 dark:text-white transition-all duration-200 hover:bg-gray-200 dark:hover:bg-white/20"
+                      className="w-4/5 flex items-center justify-center gap-2 rounded-lg bg-gray-100 px-4 py-2.5 text-sm font-semibold text-gray-900 transition-all duration-200 hover:bg-gray-200"
                     >
                       Cancel
                     </button>
@@ -527,7 +527,7 @@ export default function FileUpload({
                   exit={{ opacity: 0, y: -10 }}
                   className="absolute bottom-4 left-1/2 transform -translate-x-1/2 px-4 py-2 bg-red-500/10 border border-red-500/20 rounded-lg"
                 >
-                  <p className="text-sm text-red-500 dark:text-red-400">{error.message}</p>
+                  <p className="text-sm text-red-500">{error.message}</p>
                 </motion.div>
               )}
             </AnimatePresence>

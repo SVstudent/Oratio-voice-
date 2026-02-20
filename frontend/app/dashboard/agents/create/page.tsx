@@ -48,14 +48,16 @@ export default function CreateAgentPage() {
   const [selectedMode, setSelectedMode] = useState<"voice" | "conversational" | null>(null)
   const [voicePersonality, setVoicePersonality] = useState("")
   const [showVoicePersonality, setShowVoicePersonality] = useState(false)
+  const [outreachGoal, setOutreachGoal] = useState("")
+  const [campaignName, setCampaignName] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const folderInputRef = useRef<HTMLInputElement>(null)
 
   const steps: { id: Step; label: string }[] = [
-    { id: "description", label: "Agent Description" },
+    { id: "description", label: "Script Details" },
     { id: "knowledge-base", label: "Knowledge Base" },
-    { id: "mode", label: "Voice/Conversational Mode" },
+    { id: "mode", label: "Voice Settings" },
   ]
 
   const currentStepIndex = steps.findIndex((s) => s.id === currentStep)
@@ -165,7 +167,7 @@ export default function CreateAgentPage() {
                   node.type === "folder" ? (
                     <IconFolder className="h-4 w-4 text-blue-400" />
                   ) : (
-                    <IconFile className="h-4 w-4 text-neutral-400" />
+                    <IconFile className="h-4 w-4 text-gray-500" />
                   )
                 }
               />
@@ -177,7 +179,7 @@ export default function CreateAgentPage() {
                   e.stopPropagation()
                   removeNode(node.id)
                 }}
-                className="h-6 w-6 p-0 text-neutral-400 hover:text-red-400"
+                className="h-6 w-6 p-0 text-gray-500 hover:text-red-400"
               >
                 <IconX className="h-3 w-3" />
               </Button>
@@ -187,7 +189,7 @@ export default function CreateAgentPage() {
                 placeholder={`Description for ${node.name}...`}
                 value={node.description}
                 onChange={(e) => updateNodeDescription(node.id, e.target.value)}
-                className="bg-neutral-950 border-neutral-800 text-white text-xs h-8"
+                className="bg-white border-blue-200 text-gray-900 text-xs h-8"
                 onClick={(e) => e.stopPropagation()}
               />
             </div>
@@ -319,15 +321,15 @@ export default function CreateAgentPage() {
     <DashboardLayout>
       <div className="flex flex-col h-full">
         {/* Header */}
-        <div className="border-b border-neutral-800 bg-neutral-900/50 backdrop-blur-sm">
+        <div className="border-b border-blue-200 bg-blue-50/50 backdrop-blur-sm">
           <div className="p-6 md:p-8">
-            <h1 className="text-3xl font-bold text-white">Create New Agent</h1>
-            <p className="text-neutral-400 mt-1">Follow the steps to configure your AI agent.</p>
+            <h1 className="text-3xl font-bold text-gray-900">Create Outreach Agent</h1>
+            <p className="text-gray-500 mt-1">Configure your cold outreach script and test it with AI.</p>
           </div>
         </div>
 
         {/* Timeline */}
-        <div className="border-b border-neutral-800 bg-neutral-900/30 px-6 md:px-8 py-6">
+        <div className="border-b border-blue-200 bg-blue-50/30 px-6 md:px-8 py-6">
           <div className="flex items-center justify-between max-w-3xl mx-auto">
             {steps.map((step, index) => (
               <div key={step.id} className="flex items-center flex-1">
@@ -339,16 +341,16 @@ export default function CreateAgentPage() {
                         ? "bg-accent border-accent"
                         : index === currentStepIndex
                           ? "border-accent bg-accent/20"
-                          : "border-neutral-700 bg-neutral-900",
+                          : "border-neutral-700 bg-blue-50",
                     )}
                   >
                     {index < currentStepIndex ? (
-                      <IconCheck className="h-5 w-5 text-white" />
+                      <IconCheck className="h-5 w-5 text-gray-900" />
                     ) : (
                       <span
                         className={cn(
                           "text-sm font-semibold",
-                          index === currentStepIndex ? "text-accent" : "text-neutral-500",
+                          index === currentStepIndex ? "text-accent" : "text-gray-400",
                         )}
                       >
                         {index + 1}
@@ -358,7 +360,7 @@ export default function CreateAgentPage() {
                   <span
                     className={cn(
                       "text-xs mt-2 text-center",
-                      index === currentStepIndex ? "text-white font-medium" : "text-neutral-500",
+                      index === currentStepIndex ? "text-gray-900 font-medium" : "text-gray-400",
                     )}
                   >
                     {step.label}
@@ -368,7 +370,7 @@ export default function CreateAgentPage() {
                   <div
                     className={cn(
                       "h-0.5 flex-1 mx-2 transition-colors",
-                      index < currentStepIndex ? "bg-accent" : "bg-neutral-800",
+                      index < currentStepIndex ? "bg-accent" : "bg-blue-100",
                     )}
                   />
                 )}
@@ -381,46 +383,72 @@ export default function CreateAgentPage() {
         <div className="flex-1 overflow-auto p-6 md:p-8">
           <div className="max-w-3xl mx-auto">
             {currentStep === "description" && (
-              <Card className="bg-neutral-900 border-neutral-800 p-6">
-                <h2 className="text-xl font-semibold text-white mb-6">Agent Description</h2>
+              <Card className="bg-blue-50 border-blue-200 p-6">
+                <h2 className="text-xl font-semibold text-gray-900 mb-6">Script Details</h2>
                 <div className="space-y-6">
                   <div>
-                    <Label htmlFor="agent-name" className="text-white mb-2">
+                    <Label htmlFor="agent-name" className="text-gray-900 mb-2">
                       Agent Name
                     </Label>
                     <Input
                       id="agent-name"
-                      placeholder="e.g., Customer Support Agent"
+                      placeholder="e.g., Q1 SaaS Cold Call Script"
                       value={agentName}
                       onChange={(e) => setAgentName(e.target.value)}
-                      className="bg-neutral-950 border-neutral-800 text-white"
+                      className="bg-white border-blue-200 text-gray-900"
                     />
                   </div>
                   <div>
-                    <Label htmlFor="agent-description" className="text-white mb-2">
-                      Description
+                    <Label htmlFor="agent-description" className="text-gray-900 mb-2">
+                      Target Audience
                     </Label>
                     <Textarea
                       id="agent-description"
-                      placeholder="Describe what this agent does and its capabilities..."
+                      placeholder="Describe your ideal prospect (role, industry, pain points)..."
                       value={agentDescription}
                       onChange={(e) => setAgentDescription(e.target.value)}
-                      rows={4}
-                      className="bg-neutral-950 border-neutral-800 text-white resize-none"
+                      rows={3}
+                      className="bg-white border-blue-200 text-gray-900 resize-none"
                     />
                   </div>
                   <div>
-                    <Label htmlFor="sop" className="text-white mb-2">
-                      SOP (Statement of Purpose)
+                    <Label htmlFor="sop" className="text-gray-900 mb-2">
+                      Cold Call Script
                     </Label>
                     <Textarea
                       id="sop"
-                      placeholder="Define the standard operating procedures and guidelines for this agent..."
+                      placeholder="Write your cold call script here. Include your opener, value prop, objection handling, and close..."
                       value={sop}
                       onChange={(e) => setSop(e.target.value)}
-                      rows={4}
-                      className="bg-neutral-950 border-neutral-800 text-white resize-y"
+                      rows={6}
+                      className="bg-white border-blue-200 text-gray-900 resize-y"
                     />
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="outreach-goal" className="text-gray-900 mb-2">
+                        Outreach Goal
+                      </Label>
+                      <Input
+                        id="outreach-goal"
+                        placeholder="e.g., Book a demo, Schedule a meeting..."
+                        value={outreachGoal}
+                        onChange={(e) => setOutreachGoal(e.target.value)}
+                        className="bg-white border-blue-200 text-gray-900"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="campaign-name" className="text-gray-900 mb-2">
+                        Campaign Name (Optional)
+                      </Label>
+                      <Input
+                        id="campaign-name"
+                        placeholder="e.g., Q1 Enterprise Outreach"
+                        value={campaignName}
+                        onChange={(e) => setCampaignName(e.target.value)}
+                        className="bg-white border-blue-200 text-gray-900"
+                      />
+                    </div>
                   </div>
                   <div className="space-y-4">
                     <div className="flex items-center space-x-3">
@@ -430,7 +458,7 @@ export default function CreateAgentPage() {
                         onCheckedChange={(checked) => setHumanInLoop(checked as boolean)}
                         className="border-neutral-700 data-[state=checked]:bg-accent data-[state=checked]:border-accent"
                       />
-                      <Label htmlFor="human-in-loop" className="text-white cursor-pointer flex items-center gap-2">
+                      <Label htmlFor="human-in-loop" className="text-gray-900 cursor-pointer flex items-center gap-2">
                         Human in Loop <span className="text-xl">👤</span>
                       </Label>
                     </div>
@@ -441,7 +469,7 @@ export default function CreateAgentPage() {
                           value={humanInLoopScenarios}
                           onChange={(e) => setHumanInLoopScenarios(e.target.value)}
                           rows={3}
-                          className="bg-neutral-950 border-neutral-800 text-white resize-y"
+                          className="bg-white border-blue-200 text-gray-900 resize-y"
                         />
                       </div>
                     )}
@@ -451,10 +479,10 @@ export default function CreateAgentPage() {
             )}
 
             {currentStep === "knowledge-base" && (
-              <Card className="bg-neutral-900 border-neutral-800 p-6">
-                <h2 className="text-xl font-semibold text-white mb-2">Knowledge Base</h2>
-                <p className="text-neutral-400 text-sm mb-6">
-                  Upload folders to provide context for your agent. Add descriptions at each level.
+              <Card className="bg-blue-50 border-blue-200 p-6">
+                <h2 className="text-xl font-semibold text-gray-900 mb-2">Knowledge Base</h2>
+                <p className="text-gray-500 text-sm mb-6">
+                  Upload product info, objection handling guides, competitor battlecards, and other reference materials.
                 </p>
 
                 <div className="mb-6">
@@ -478,8 +506,8 @@ export default function CreateAgentPage() {
                 </div>
 
                 {fileTree.length > 0 && (
-                  <div className="bg-neutral-950 border border-neutral-800 rounded-lg p-4">
-                    <h3 className="text-sm font-medium text-white mb-4">Uploaded Files & Folders</h3>
+                  <div className="bg-white border border-blue-200 rounded-lg p-4">
+                    <h3 className="text-sm font-medium text-gray-900 mb-4">Uploaded Files & Folders</h3>
                     <TreeProvider defaultExpandedIds={fileTree.map((n) => n.id)}>
                       <TreeView className="text-sm">{renderTree(fileTree)}</TreeView>
                     </TreeProvider>
@@ -490,9 +518,9 @@ export default function CreateAgentPage() {
 
             {currentStep === "mode" && (
               <div className="space-y-6">
-                <Card className="bg-neutral-900 border-neutral-800 p-6">
-                  <h2 className="text-xl font-semibold text-white mb-2">Select Agent Mode</h2>
-                  <p className="text-neutral-400 text-sm mb-6">Choose how your agent will interact with users.</p>
+                <Card className="bg-blue-50 border-blue-200 p-6">
+                  <h2 className="text-xl font-semibold text-gray-900 mb-2">Select Agent Mode</h2>
+                  <p className="text-gray-500 text-sm mb-6">Choose how your agent will interact with users.</p>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Voice Mode */}
@@ -508,12 +536,12 @@ export default function CreateAgentPage() {
                           : "border-neutral-700 hover:border-neutral-600",
                       )}
                     >
-                      <div className="flex items-center justify-center h-16 w-16 rounded-full bg-neutral-800 mb-4">
+                      <div className="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 mb-4">
                         <IconMicrophone className="h-8 w-8 text-accent" />
                       </div>
-                      <h3 className="text-lg font-semibold text-white mb-2">Voice Mode</h3>
-                      <p className="text-neutral-400 text-sm">
-                        Real-time voice conversations using AWS Nova Sonic for natural speech interactions.
+                      <h3 className="text-lg font-semibold text-gray-900 mb-2">Voice Mode</h3>
+                      <p className="text-gray-500 text-sm">
+                        Simulate real cold calls with AI voice prospects using MiniMax. Practice your pitch and refine delivery.
                       </p>
                     </button>
 
@@ -530,12 +558,12 @@ export default function CreateAgentPage() {
                           : "border-neutral-700 hover:border-neutral-600",
                       )}
                     >
-                      <div className="flex items-center justify-center h-16 w-16 rounded-full bg-neutral-800 mb-4">
+                      <div className="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 mb-4">
                         <IconMessage className="h-8 w-8 text-accent" />
                       </div>
-                      <h3 className="text-lg font-semibold text-white mb-2">Conversational Mode</h3>
-                      <p className="text-neutral-400 text-sm">
-                        Text-based conversations powered by Claude for intelligent chat interactions.
+                      <h3 className="text-lg font-semibold text-gray-900 mb-2">Conversational Mode</h3>
+                      <p className="text-gray-500 text-sm">
+                        Test your script via text chat. Practice objection handling and refine your messaging.
                       </p>
                     </button>
                   </div>
@@ -543,25 +571,25 @@ export default function CreateAgentPage() {
 
                 {/* Voice Personality Section - Collapsible */}
                 {selectedMode === "voice" && showVoicePersonality && (
-                  <Card className="bg-neutral-900 border-neutral-800 p-6 animate-in fade-in slide-in-from-top-2 duration-300">
+                  <Card className="bg-blue-50 border-blue-200 p-6 animate-in fade-in slide-in-from-top-2 duration-300">
                     <div className="flex items-center justify-between mb-4">
-                      <h3 className="text-lg font-semibold text-white">Voice Personality (Optional)</h3>
+                      <h3 className="text-lg font-semibold text-gray-900">Voice Personality (Optional)</h3>
                       <Button
                         variant="ghost"
                         size="sm"
                         onClick={() => setShowVoicePersonality(false)}
-                        className="text-neutral-400 hover:text-white"
+                        className="text-gray-500 hover:text-blue-600"
                       >
                         <IconX className="h-4 w-4" />
                       </Button>
                     </div>
-                    <p className="text-neutral-400 text-sm mb-4">
+                    <p className="text-gray-500 text-sm mb-4">
                       Define how your voice agent should sound and behave during conversations.
                     </p>
                     
                     <div className="space-y-4">
                       <div>
-                        <Label htmlFor="voice-personality" className="text-white mb-2">
+                        <Label htmlFor="voice-personality" className="text-gray-900 mb-2">
                           Personality Instructions
                         </Label>
                         <Textarea
@@ -570,17 +598,17 @@ export default function CreateAgentPage() {
                           value={voicePersonality}
                           onChange={(e) => setVoicePersonality(e.target.value)}
                           rows={6}
-                          className="bg-neutral-950 border-neutral-800 text-white resize-y"
+                          className="bg-white border-blue-200 text-gray-900 resize-y"
                         />
                       </div>
                       
                       {/* Example */}
-                      <div className="bg-neutral-950 border border-neutral-800 rounded-lg p-4">
-                        <p className="text-xs font-semibold text-accent mb-2">Example:</p>
-                        <p className="text-xs text-neutral-400 leading-relaxed">
-                          "You are Sarah, a friendly and empathetic customer service representative. Speak in a warm, 
-                          conversational tone with moderate pacing. Use occasional filler words like 'um' to sound natural. 
-                          Be patient and understanding when customers are frustrated."
+                      <div className="bg-white border border-blue-200 rounded-lg p-4">
+                        <p className="text-xs font-semibold text-accent mb-2">Example Prospect Persona:</p>
+                        <p className="text-xs text-gray-500 leading-relaxed">
+                          "You are a skeptical VP of Engineering at a mid-size SaaS company. You&apos;re busy, slightly
+                          impatient, but open to hearing a good pitch. Push back on vague value propositions and ask
+                          for specifics. You care about ROI and integration effort."
                         </p>
                       </div>
                     </div>
@@ -591,7 +619,7 @@ export default function CreateAgentPage() {
                   <Button
                     variant="outline"
                     onClick={() => setShowVoicePersonality(true)}
-                    className="w-full border-neutral-700 text-white hover:bg-neutral-800 bg-transparent"
+                    className="w-full border-neutral-700 text-gray-900 hover:bg-blue-100 bg-transparent"
                   >
                     Add Voice Personality
                   </Button>
@@ -612,7 +640,7 @@ export default function CreateAgentPage() {
                 variant="outline"
                 onClick={handleBack}
                 disabled={currentStep === "description" || isSubmitting}
-                className="border-neutral-700 text-white hover:bg-neutral-800 bg-transparent"
+                className="border-neutral-700 text-gray-900 hover:bg-blue-100 bg-transparent"
               >
                 Back
               </Button>

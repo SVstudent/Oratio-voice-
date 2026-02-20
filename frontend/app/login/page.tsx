@@ -109,8 +109,8 @@ export default function LoginPage() {
               />
             </div>
 
-            <Button 
-              type="submit" 
+            <Button
+              type="submit"
               className="w-full bg-accent hover:bg-accent/90"
               disabled={isLoading}
             >
@@ -122,6 +122,35 @@ export default function LoginPage() {
               ) : (
                 "Sign in"
               )}
+            </Button>
+
+            <div className="relative my-2">
+              <div className="absolute inset-0 flex items-center">
+                <span className="w-full border-t border-border" />
+              </div>
+              <div className="relative flex justify-center text-xs uppercase">
+                <span className="bg-card px-2 text-muted-foreground">or</span>
+              </div>
+            </div>
+
+            <Button
+              type="button"
+              variant="outline"
+              className="w-full"
+              disabled={isLoading}
+              onClick={async () => {
+                setError("")
+                setIsLoading(true)
+                try {
+                  await login({ email: "demo@oratio.dev", password: "demodemo" })
+                } catch (err) {
+                  setError(err instanceof Error ? err.message : "Bypass failed.")
+                } finally {
+                  setIsLoading(false)
+                }
+              }}
+            >
+              Skip Auth (Demo)
             </Button>
           </form>
 

@@ -85,18 +85,18 @@ export default function AI_Voice() {
                         "group w-16 h-16 rounded-xl flex items-center justify-center transition-colors",
                         submitted
                             ? "bg-none"
-                            : "bg-none hover:bg-black/5 dark:hover:bg-white/5"
+                            : "bg-none hover:bg-white/5"
                     )}
                     type="button"
                     onClick={handleClick}
                 >
                     {submitted ? (
                         <div
-                            className="w-6 h-6 rounded-sm animate-spin bg-black  dark:bg-white cursor-pointer pointer-events-auto"
+                            className="w-6 h-6 rounded-sm animate-spin bg-white cursor-pointer pointer-events-auto"
                             style={{ animationDuration: "3s" }}
                         />
                     ) : (
-                        <MicSparklesIcon size={40} className="text-black/90 dark:text-white/90" />
+                        <MicSparklesIcon size={40} className="text-gray-800" />
                     )}
                 </button>
 
@@ -104,8 +104,8 @@ export default function AI_Voice() {
                     className={cn(
                         "font-mono text-sm transition-opacity duration-300",
                         submitted
-                            ? "text-black/70 dark:text-white/70"
-                            : "text-black/30 dark:text-white/30"
+                            ? "text-gray-600"
+                            : "text-gray-400"
                     )}
                 >
                     {formatTime(time)}
@@ -118,8 +118,8 @@ export default function AI_Voice() {
                             className={cn(
                                 "w-0.5 rounded-full transition-all duration-300",
                                 submitted
-                                    ? "bg-black/50 dark:bg-white/50 animate-pulse"
-                                    : "bg-black/10 dark:bg-white/10 h-1"
+                                    ? "bg-blue-50/50 animate-pulse"
+                                    : "bg-white/10 h-1"
                             )}
                             style={
                                 submitted && isClient
@@ -133,7 +133,7 @@ export default function AI_Voice() {
                     ))}
                 </div>
 
-                <p className="h-4 text-xs text-black/70 dark:text-white/70">
+                <p className="h-4 text-xs text-gray-600">
                     {submitted ? "Listening..." : "Click to speak"}
                 </p>
             </div>

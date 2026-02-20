@@ -455,12 +455,12 @@ export default function VoiceTestingInterface({
   }
 
   return (
-    <Card className="bg-neutral-900 border-neutral-800 p-6 mb-6">
-      <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+    <Card className="bg-blue-50 border-blue-200 p-6 mb-6">
+      <h2 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
         <IconPhone className="h-5 w-5 text-accent" />
         Voice Agent Testing (Nova Sonic)
       </h2>
-      <p className="text-sm text-neutral-400 mb-4">
+      <p className="text-sm text-gray-500 mb-4">
         Test your voice agent with real-time bidirectional audio streaming powered by Nova Sonic.
       </p>
 
@@ -474,7 +474,7 @@ export default function VoiceTestingInterface({
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Left: Voice Visualizer */}
         <div className="lg:col-span-1">
-          <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-8 h-full flex flex-col items-center justify-center min-h-[500px]">
+          <div className="bg-blue-50 border border-blue-200 rounded-xl p-8 h-full flex flex-col items-center justify-center min-h-[500px]">
             <button
               onClick={isVoiceActive ? stopVoiceSession : startVoiceSession}
               disabled={isVoiceActive && !isRecording}
@@ -486,13 +486,13 @@ export default function VoiceTestingInterface({
               )}
             >
               {isVoiceActive ? (
-                <IconPhoneOff className="h-10 w-10 text-white" />
+                <IconPhoneOff className="h-10 w-10 text-gray-900" />
               ) : (
-                <IconPhone className="h-10 w-10 text-white" />
+                <IconPhone className="h-10 w-10 text-gray-900" />
               )}
             </button>
 
-            <span className="font-mono text-2xl text-white/90 mb-8">
+            <span className="font-mono text-2xl text-gray-900/90 mb-8">
               {formatVoiceTime(voiceTime)}
             </span>
 
@@ -519,7 +519,7 @@ export default function VoiceTestingInterface({
               ))}
             </div>
 
-            <p className="text-sm text-neutral-400 text-center">
+            <p className="text-sm text-gray-500 text-center">
               {isVoiceActive
                 ? isRecording
                   ? "🎤 Listening..."
@@ -533,16 +533,16 @@ export default function VoiceTestingInterface({
         <div className="lg:col-span-2 space-y-6">
           {/* Conversation Transcript */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+            <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
               <IconMicrophone className="h-5 w-5 text-accent" />
               Conversation Transcript
             </h3>
             <div 
               ref={voiceTranscriptsContainerRef}
-              className="bg-neutral-900 border border-neutral-800 rounded-xl p-6 h-64 overflow-y-auto space-y-3 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+              className="bg-blue-50 border border-blue-200 rounded-xl p-6 h-64 overflow-y-auto space-y-3 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
             >
               {voiceTranscripts.length === 0 ? (
-                <p className="text-sm text-neutral-500 text-center py-16">
+                <p className="text-sm text-gray-400 text-center py-16">
                   No conversation yet
                 </p>
               ) : (
@@ -564,14 +564,14 @@ export default function VoiceTestingInterface({
                         "max-w-[80%] p-3 rounded-lg",
                         transcript.role === "user"
                           ? "bg-accent/20 text-accent border border-accent/30"
-                          : "bg-neutral-800 text-white border border-neutral-700"
+                          : "bg-blue-100 text-gray-900 border border-neutral-700"
                       )}
                     >
                       <p className="text-sm">{transcript.content}</p>
                     </div>
                     {transcript.role === "user" && (
                       <div className="w-8 h-8 rounded-full bg-neutral-700 flex items-center justify-center flex-shrink-0">
-                        <IconUser className="h-4 w-4 text-white" />
+                        <IconUser className="h-4 w-4 text-gray-900" />
                       </div>
                     )}
                   </div>
@@ -582,20 +582,20 @@ export default function VoiceTestingInterface({
 
           {/* Tool Invocations */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+            <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
               <IconSparkles className="h-5 w-5 text-accent" />
               Tool Invocations
             </h3>
-            <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-6 h-48 overflow-y-auto space-y-3 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 h-48 overflow-y-auto space-y-3 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
               {voiceToolCalls.length === 0 ? (
-                <p className="text-sm text-neutral-500 text-center py-12">
+                <p className="text-sm text-gray-400 text-center py-12">
                   No tool calls yet
                 </p>
               ) : (
                 voiceToolCalls.map((call, idx) => (
                   <div
                     key={idx}
-                    className="bg-neutral-800 border border-neutral-700 rounded-lg p-4"
+                    className="bg-blue-100 border border-neutral-700 rounded-lg p-4"
                   >
                     <div className="flex items-center justify-between mb-2">
                       <span className="font-semibold text-accent flex items-center gap-2">
@@ -612,14 +612,14 @@ export default function VoiceTestingInterface({
                         </Badge>
                       )}
                     </div>
-                    <div className="text-sm text-neutral-400 mb-2">
+                    <div className="text-sm text-gray-500 mb-2">
                       <span className="opacity-70">Input:</span>{" "}
-                      <code className="text-xs bg-neutral-900 px-2 py-1 rounded">
+                      <code className="text-xs bg-blue-50 px-2 py-1 rounded">
                         {JSON.stringify(call.input).slice(0, 100)}...
                       </code>
                     </div>
                     {call.result && (
-                      <div className="text-sm text-neutral-300">
+                      <div className="text-sm text-gray-600">
                         <span className="opacity-70">Result:</span>{" "}
                         <span className="text-green-400">{call.result}</span>
                       </div>

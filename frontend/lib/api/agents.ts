@@ -30,6 +30,13 @@ export interface KnowledgeBase {
   updated_at: number;
 }
 
+export interface AgentMetrics {
+  total_calls?: number;
+  avg_duration_seconds?: number;
+  conversion_rate?: number;
+  sentiment_score?: number;
+}
+
 export interface Agent {
   agent_id: string;
   user_id: string;
@@ -52,6 +59,13 @@ export interface Agent {
   created_at: number;
   updated_at: number;
   knowledge_base?: KnowledgeBase;
+  // Outreach-specific fields
+  campaign_id?: string;
+  campaign_name?: string;
+  target_audience?: string;
+  outreach_goal?: string;
+  script_summary?: string;
+  metrics?: AgentMetrics;
 }
 
 export interface CreateAgentData {
@@ -65,6 +79,10 @@ export interface CreateAgentData {
   text_config?: Record<string, any>;
   files: File[];
   file_descriptions?: Record<string, string>;
+  // Outreach-specific fields
+  campaign_name?: string;
+  target_audience?: string;
+  outreach_goal?: string;
 }
 
 /**

@@ -78,21 +78,21 @@ export default function TextTestingInterface({
   }
 
   return (
-    <Card className="bg-neutral-900 border-neutral-800 p-6">
-      <h2 className="text-lg font-semibold text-white mb-4">
+    <Card className="bg-blue-50 border-blue-200 p-6">
+      <h2 className="text-lg font-semibold text-gray-900 mb-4">
         {agent.agent_type === "voice" ? "Text Testing (Fallback)" : "Test Agent"}
       </h2>
-      <p className="text-sm text-neutral-400 mb-4">
+      <p className="text-sm text-gray-500 mb-4">
         Send messages to test your agent. This is a test session and won't affect production data.
       </p>
 
       {/* Messages */}
       <div
         ref={scrollAreaRef}
-        className="h-[400px] overflow-y-auto bg-neutral-950 border border-neutral-800 rounded-lg p-4 mb-4 space-y-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+        className="h-[400px] overflow-y-auto bg-white border border-blue-200 rounded-lg p-4 mb-4 space-y-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
       >
         {messages.length === 0 && (
-          <div className="flex items-center justify-center h-full text-neutral-500 text-sm">
+          <div className="flex items-center justify-center h-full text-gray-400 text-sm">
             Start a conversation with your agent
           </div>
         )}
@@ -114,14 +114,14 @@ export default function TextTestingInterface({
                 "max-w-[70%] rounded-lg p-3 text-sm",
                 message.role === "user"
                   ? "bg-accent text-white"
-                  : "bg-neutral-800 text-white"
+                  : "bg-blue-100 text-gray-900"
               )}
             >
               {message.content}
             </div>
             {message.role === "user" && (
               <div className="flex-shrink-0 h-8 w-8 rounded-full bg-neutral-700 flex items-center justify-center">
-                <IconUser className="h-5 w-5 text-white" />
+                <IconUser className="h-5 w-5 text-gray-900" />
               </div>
             )}
           </div>
@@ -131,7 +131,7 @@ export default function TextTestingInterface({
             <div className="flex-shrink-0 h-8 w-8 rounded-full bg-accent/20 flex items-center justify-center">
               <IconRobot className="h-5 w-5 text-accent" />
             </div>
-            <div className="bg-neutral-800 rounded-lg p-3">
+            <div className="bg-blue-100 rounded-lg p-3">
               <div className="flex gap-1">
                 <div className="h-2 w-2 bg-neutral-500 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
                 <div className="h-2 w-2 bg-neutral-500 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
@@ -156,7 +156,7 @@ export default function TextTestingInterface({
             }
           }}
           disabled={isSending}
-          className="bg-neutral-950 border-neutral-800 text-white"
+          className="bg-white border-blue-200 text-gray-900"
         />
         <Button
           onClick={handleSendMessage}
@@ -168,7 +168,7 @@ export default function TextTestingInterface({
       </div>
 
       {/* Test Mode Indicator */}
-      <div className="mt-4 text-xs text-neutral-500 flex items-center gap-2">
+      <div className="mt-4 text-xs text-gray-400 flex items-center gap-2">
         <div className="h-2 w-2 bg-green-500 rounded-full animate-pulse" />
         Testing Mode - Session: {sessionId.slice(0, 20)}...
       </div>

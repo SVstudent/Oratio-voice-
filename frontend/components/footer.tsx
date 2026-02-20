@@ -15,8 +15,7 @@ export function Footer() {
               <span className="text-xl font-bold">Oratio</span>
             </Link>
             <p className="mb-6 max-w-sm text-pretty text-sm leading-relaxed text-muted-foreground">
-              Enterprise-grade platform for building voice and conversational AI agents without code. Powered by AWS
-              Bedrock and AgentCore.
+              AI-powered platform for testing and optimizing cold outreach scripts. Built for the AWS x Datadog GenAI Hackathon.
             </p>
             <div className="flex gap-4">
               <Link
@@ -54,50 +53,42 @@ export function Footer() {
             <h3 className="mb-4 text-sm font-semibold">Product</h3>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link href="#" className="text-muted-foreground transition-colors hover:text-foreground">
+                <Link href="/#features" className="text-muted-foreground transition-colors hover:text-foreground">
                   Features
                 </Link>
               </li>
               <li>
                 <Link href="#" className="text-muted-foreground transition-colors hover:text-foreground">
-                  Use Cases
+                  Script Testing
                 </Link>
               </li>
               <li>
                 <Link href="#" className="text-muted-foreground transition-colors hover:text-foreground">
-                  Pricing
+                  Analytics
                 </Link>
               </li>
               <li>
                 <Link href="#" className="text-muted-foreground transition-colors hover:text-foreground">
-                  API Documentation
+                  API Docs
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="mb-4 text-sm font-semibold">Company</h3>
+            <h3 className="mb-4 text-sm font-semibold">Hackathon Sponsors</h3>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link href="#" className="text-muted-foreground transition-colors hover:text-foreground">
-                  About
-                </Link>
+                <span className="text-muted-foreground">AWS Bedrock</span>
               </li>
               <li>
-                <Link href="#" className="text-muted-foreground transition-colors hover:text-foreground">
-                  Blog
-                </Link>
+                <span className="text-muted-foreground">Datadog</span>
               </li>
               <li>
-                <Link href="#" className="text-muted-foreground transition-colors hover:text-foreground">
-                  Careers
-                </Link>
+                <span className="text-muted-foreground">MiniMax</span>
               </li>
               <li>
-                <Link href="#" className="text-muted-foreground transition-colors hover:text-foreground">
-                  Contact
-                </Link>
+                <span className="text-muted-foreground">CopilotKit</span>
               </li>
             </ul>
           </div>

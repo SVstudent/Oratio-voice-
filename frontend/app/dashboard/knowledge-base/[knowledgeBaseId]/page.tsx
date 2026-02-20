@@ -77,7 +77,7 @@ export default function KnowledgeBaseDetailPage() {
         <div className="flex items-center justify-center h-full">
           <div className="flex flex-col items-center gap-4">
             <Loader2 className="h-8 w-8 animate-spin text-accent" />
-            <p className="text-neutral-400">Loading knowledge base...</p>
+            <p className="text-gray-500">Loading knowledge base...</p>
           </div>
         </div>
       </DashboardLayout>
@@ -93,8 +93,8 @@ export default function KnowledgeBaseDetailPage() {
             <div className="h-16 w-16 rounded-full bg-red-500/10 flex items-center justify-center">
               <span className="text-2xl">⚠️</span>
             </div>
-            <h2 className="text-xl font-semibold text-white">Error Loading Knowledge Base</h2>
-            <p className="text-neutral-400">{error || "Knowledge base not found"}</p>
+            <h2 className="text-xl font-semibold text-gray-900">Error Loading Knowledge Base</h2>
+            <p className="text-gray-500">{error || "Knowledge base not found"}</p>
             <Link href="/dashboard/knowledge-base">
               <Button className="bg-accent hover:bg-accent/90">
                 <IconArrowLeft className="h-4 w-4 mr-2" />
@@ -113,24 +113,24 @@ export default function KnowledgeBaseDetailPage() {
     <DashboardLayout>
       <div className="flex flex-col h-full">
         {/* Header */}
-        <div className="border-b border-neutral-800/50 bg-neutral-900/30 backdrop-blur-sm">
+        <div className="border-b border-blue-200/50 bg-blue-50/30 backdrop-blur-sm">
           <div className="p-8">
             <div className="flex items-start gap-4 mb-6">
               <Link href="/dashboard/knowledge-base">
-                <Button variant="outline" size="icon" className="border-neutral-800/50 hover:bg-neutral-800/50">
+                <Button variant="outline" size="icon" className="border-blue-200/50 hover:bg-blue-100/50">
                   <IconArrowLeft className="h-4 w-4" />
                 </Button>
               </Link>
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-2">
-                  <div className="h-12 w-12 rounded-xl bg-neutral-800/50 flex items-center justify-center shrink-0">
+                  <div className="h-12 w-12 rounded-xl bg-blue-100/50 flex items-center justify-center shrink-0">
                     <IconDatabase className="h-6 w-6 text-accent" />
                   </div>
                   <div className="flex-1">
-                    <h1 className="text-3xl font-bold text-white">
+                    <h1 className="text-3xl font-bold text-gray-900">
                       {knowledgeBase.s3Path.split('/').pop() || 'Knowledge Base'}
                     </h1>
-                    <p className="text-neutral-400 mt-1">{knowledgeBase.s3Path}</p>
+                    <p className="text-gray-500 mt-1">{knowledgeBase.s3Path}</p>
                   </div>
                   <Badge variant="secondary" className={getStatusColor(knowledgeBase.status)}>
                     {knowledgeBase.status.toUpperCase()}
@@ -140,16 +140,16 @@ export default function KnowledgeBaseDetailPage() {
             </div>
 
             <div className="flex items-center gap-4">
-              <div className="text-sm text-neutral-400">
-                <span className="font-medium text-neutral-300">Created:</span>{" "}
+              <div className="text-sm text-gray-500">
+                <span className="font-medium text-gray-600">Created:</span>{" "}
                 {new Date(knowledgeBase.createdAt * 1000).toLocaleDateString()}
               </div>
-              <div className="text-sm text-neutral-400">
-                <span className="font-medium text-neutral-300">Updated:</span>{" "}
+              <div className="text-sm text-gray-500">
+                <span className="font-medium text-gray-600">Updated:</span>{" "}
                 {formatRelativeTime(knowledgeBase.updatedAt)}
               </div>
-              <div className="text-sm text-neutral-400">
-                <span className="font-medium text-neutral-300">Files:</span>{" "}
+              <div className="text-sm text-gray-500">
+                <span className="font-medium text-gray-600">Files:</span>{" "}
                 {files.length}
               </div>
               <div className="ml-auto">
@@ -179,13 +179,13 @@ export default function KnowledgeBaseDetailPage() {
         {/* Content */}
         <div className="flex-1 overflow-auto p-8">
           <div className="max-w-5xl">
-            <h2 className="text-xl font-semibold text-white mb-4">Files & Documents</h2>
+            <h2 className="text-xl font-semibold text-gray-900 mb-4">Files & Documents</h2>
             
             {files.length === 0 ? (
-              <Card className="p-12 text-center bg-neutral-900/50 border-neutral-800/50">
-                <IconFolder className="h-12 w-12 mx-auto text-neutral-600 mb-4" />
-                <p className="text-neutral-400">No files in this knowledge base</p>
-                <p className="text-sm text-neutral-500 mt-1">
+              <Card className="p-12 text-center bg-blue-50/50 border-blue-200/50">
+                <IconFolder className="h-12 w-12 mx-auto text-gray-500 mb-4" />
+                <p className="text-gray-500">No files in this knowledge base</p>
+                <p className="text-sm text-gray-400 mt-1">
                   Upload documents to add knowledge for your agents
                 </p>
               </Card>
@@ -198,10 +198,10 @@ export default function KnowledgeBaseDetailPage() {
                   return (
                     <Card
                       key={path}
-                      className="bg-neutral-900/50 border-neutral-800/50 p-4 hover:border-accent/50 transition-all"
+                      className="bg-blue-50/50 border-blue-200/50 p-4 hover:border-accent/50 transition-all"
                     >
                       <div className="flex items-center gap-4">
-                        <div className="h-10 w-10 rounded-lg bg-neutral-800/50 flex items-center justify-center shrink-0">
+                        <div className="h-10 w-10 rounded-lg bg-blue-100/50 flex items-center justify-center shrink-0">
                           {isFolder ? (
                             <IconFolder className="h-5 w-5 text-accent" />
                           ) : (
@@ -209,16 +209,16 @@ export default function KnowledgeBaseDetailPage() {
                           )}
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h3 className="font-medium text-white truncate">{fileName}</h3>
+                          <h3 className="font-medium text-gray-900 truncate">{fileName}</h3>
                           {description && (
-                            <p className="text-sm text-neutral-400 truncate">{description}</p>
+                            <p className="text-sm text-gray-500 truncate">{description}</p>
                           )}
-                          <p className="text-xs text-neutral-500 truncate mt-1">{path}</p>
+                          <p className="text-xs text-gray-400 truncate mt-1">{path}</p>
                         </div>
                         <Button
                           variant="outline"
                           size="sm"
-                          className="border-neutral-800/50 hover:bg-neutral-800/50 gap-2 shrink-0"
+                          className="border-blue-200/50 hover:bg-blue-100/50 gap-2 shrink-0"
                         >
                           <IconDownload className="h-4 w-4" />
                           Download
@@ -233,16 +233,16 @@ export default function KnowledgeBaseDetailPage() {
             {/* Bedrock Info */}
             {knowledgeBase.bedrockKnowledgeBaseId && (
               <div className="mt-8">
-                <h2 className="text-xl font-semibold text-white mb-4">Bedrock Configuration</h2>
-                <Card className="bg-neutral-900/50 border-neutral-800/50 p-6">
+                <h2 className="text-xl font-semibold text-gray-900 mb-4">Bedrock Configuration</h2>
+                <Card className="bg-blue-50/50 border-blue-200/50 p-6">
                   <div className="space-y-2 text-sm">
                     <div>
-                      <span className="font-medium text-neutral-300">Bedrock KB ID:</span>{" "}
-                      <span className="text-neutral-400 font-mono">{knowledgeBase.bedrockKnowledgeBaseId}</span>
+                      <span className="font-medium text-gray-600">Bedrock KB ID:</span>{" "}
+                      <span className="text-gray-500 font-mono">{knowledgeBase.bedrockKnowledgeBaseId}</span>
                     </div>
                     <div>
-                      <span className="font-medium text-neutral-300">S3 Path:</span>{" "}
-                      <span className="text-neutral-400 font-mono">{knowledgeBase.s3Path}</span>
+                      <span className="font-medium text-gray-600">S3 Path:</span>{" "}
+                      <span className="text-gray-500 font-mono">{knowledgeBase.s3Path}</span>
                     </div>
                   </div>
                 </Card>

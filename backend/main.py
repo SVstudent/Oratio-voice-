@@ -3,7 +3,15 @@ from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from config import settings
 from routers import agents, auth, chat, api_keys, knowledge_bases
-from routers import voice_simple as voice  # Use simplified voice implementation
+
+# Voice router requires AWS Bedrock Smithy SDK — optional for hackathon demo
+try:
+    from routers import voice_simple as voice
+    VOICE_AVAILABLE = True
+except ImportError:
+    print("⚠️  Voice router not available (aws_sdk_bedrock_runtime not installed)")
+    VOICE_AVAILABLE = False
+    voice = None
 
 # Import observability (optional - will work without ddtrace)
 try:
@@ -61,7 +69,8 @@ app.include_router(agents.router, prefix=settings.API_V1_PREFIX)
 app.include_router(api_keys.router, prefix=settings.API_V1_PREFIX)
 app.include_router(knowledge_bases.router, prefix=settings.API_V1_PREFIX)
 app.include_router(chat.router, prefix=settings.API_V1_PREFIX)
-app.include_router(voice.router, prefix=settings.API_V1_PREFIX)  # Voice WebSocket (simplified)
+if VOICE_AVAILABLE:
+    app.include_router(voice.router, prefix=settings.API_V1_PREFIX)  # Voice WebSocket (simplified)
 
 
 @app.get("/")

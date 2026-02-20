@@ -20,15 +20,15 @@ export function AgentDetailsCard({ agent, defaultOpen = true }: AgentDetailsCard
 
   return (
     <Collapsible open={isOpen} onOpenChange={setIsOpen} defaultOpen={defaultOpen}>
-      <Card className="bg-neutral-900 border-neutral-800 overflow-hidden">
-        <CollapsibleTrigger className="w-full px-6 py-4 flex items-center justify-between hover:bg-neutral-800/50 transition-colors">
+      <Card className="bg-blue-50 border-blue-200 overflow-hidden">
+        <CollapsibleTrigger className="w-full px-6 py-4 flex items-center justify-between hover:bg-blue-100/50 transition-colors">
           <div className="flex items-center gap-2">
             <IconInfoCircle className="h-5 w-5 text-accent" />
-            <h2 className="text-lg font-semibold text-white">Agent Details</h2>
+            <h2 className="text-lg font-semibold text-gray-900">Agent Details</h2>
           </div>
           <IconChevronDown
             className={cn(
-              "h-5 w-5 text-neutral-400 transition-transform duration-200",
+              "h-5 w-5 text-gray-500 transition-transform duration-200",
               isOpen && "transform rotate-180"
             )}
           />

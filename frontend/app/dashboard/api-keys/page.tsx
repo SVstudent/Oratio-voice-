@@ -166,12 +166,12 @@ export default function APIKeysPage() {
     <DashboardLayout>
       <div className="flex flex-col h-full">
         {/* Header */}
-        <div className="border-b border-neutral-800/50 bg-neutral-900/30 backdrop-blur-sm">
+        <div className="border-b border-blue-200/50 bg-blue-50/30 backdrop-blur-sm">
           <div className="p-8">
             <div className="flex items-center justify-between">
               <div>
-                <h1 className="text-3xl font-bold text-white">API Keys</h1>
-                <p className="text-neutral-400 mt-1">
+                <h1 className="text-3xl font-bold text-gray-900">API Keys</h1>
+                <p className="text-gray-500 mt-1">
                   Manage API keys for your agents
                 </p>
               </div>
@@ -201,22 +201,22 @@ export default function APIKeysPage() {
                 <div className="space-y-4">
                   <div className="flex items-center gap-2 text-accent">
                     <IconKey className="w-5 h-5" />
-                    <h3 className="font-semibold text-white">API Key Created Successfully!</h3>
+                    <h3 className="font-semibold text-gray-900">API Key Created Successfully!</h3>
                   </div>
-                  <p className="text-sm text-neutral-400">
+                  <p className="text-sm text-gray-500">
                     Make sure to copy your API key now. You won't be able to see it again!
                   </p>
                   <div className="flex gap-2">
                     <Input
                       value={newKey.api_key}
                       readOnly
-                      className="font-mono text-sm bg-neutral-900/50 border-neutral-800/50 text-white"
+                      className="font-mono text-sm bg-blue-50/50 border-blue-200/50 text-gray-900"
                     />
                     <Button
                       onClick={() => copyToClipboard(newKey.api_key)}
                       variant="outline"
                       size="icon"
-                      className="border-neutral-800/50 hover:bg-neutral-800/50"
+                      className="border-blue-200/50 hover:bg-blue-100/50"
                     >
                       {copiedKey ? (
                         <IconCheck className="w-4 h-4 text-green-400" />
@@ -238,7 +238,7 @@ export default function APIKeysPage() {
                         setNewKey(null)
                       }}
                       variant="outline"
-                      className="flex-1 border-neutral-800/50 hover:bg-neutral-800/50"
+                      className="flex-1 border-blue-200/50 hover:bg-blue-100/50"
                     >
                       Copy & Close
                     </Button>
@@ -249,31 +249,31 @@ export default function APIKeysPage() {
 
             {/* Create Form */}
             {showCreateForm && (
-              <Card className="p-6 bg-neutral-900/50 border-neutral-800/50">
-                <h3 className="text-xl font-semibold mb-4 text-white">Create New API Key</h3>
+              <Card className="p-6 bg-blue-50/50 border-blue-200/50">
+                <h3 className="text-xl font-semibold mb-4 text-gray-900">Create New API Key</h3>
                 <div className="space-y-4">
                   <div>
-                    <Label htmlFor="key-name" className="text-neutral-200">Key Name *</Label>
+                    <Label htmlFor="key-name" className="text-gray-700">Key Name *</Label>
                     <Input
                       id="key-name"
                       value={keyName}
                       onChange={(e) => setKeyName(e.target.value)}
                       placeholder="e.g., Production Key"
-                      className="mt-1 bg-neutral-900/50 border-neutral-800/50 text-white"
+                      className="mt-1 bg-blue-50/50 border-blue-200/50 text-gray-900"
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="agent" className="text-neutral-200">Agent *</Label>
+                    <Label htmlFor="agent" className="text-gray-700">Agent *</Label>
                     <select
                       id="agent"
                       value={selectedAgent}
                       onChange={(e) => setSelectedAgent(e.target.value)}
-                      className="w-full mt-1 px-3 py-2 border rounded-md bg-neutral-900/50 border-neutral-800/50 text-white"
+                      className="w-full mt-1 px-3 py-2 border rounded-md bg-blue-50/50 border-blue-200/50 text-gray-900"
                     >
-                      <option value="" className="bg-neutral-900">Select an agent...</option>
+                      <option value="" className="bg-blue-50">Select an agent...</option>
                       {agents.map((agent) => (
-                        <option key={agent.agent_id} value={agent.agent_id} className="bg-neutral-900">
+                        <option key={agent.agent_id} value={agent.agent_id} className="bg-blue-50">
                           {agent.agent_name}
                         </option>
                       ))}
@@ -281,7 +281,7 @@ export default function APIKeysPage() {
                   </div>
 
                   <div>
-                    <Label className="text-neutral-200">Permissions *</Label>
+                    <Label className="text-gray-700">Permissions *</Label>
                     <div className="mt-2 space-y-2">
                       {(['chat', 'voice', 'admin'] as APIKeyPermission[]).map((permission) => (
                         <div key={permission} className="flex items-center gap-2">
@@ -290,7 +290,7 @@ export default function APIKeysPage() {
                             checked={permissions.includes(permission)}
                             onCheckedChange={() => togglePermission(permission)}
                           />
-                          <label htmlFor={permission} className="text-sm capitalize cursor-pointer text-neutral-200">
+                          <label htmlFor={permission} className="text-sm capitalize cursor-pointer text-gray-700">
                             {permission}
                           </label>
                         </div>
@@ -299,7 +299,7 @@ export default function APIKeysPage() {
                   </div>
 
                   <div>
-                    <Label htmlFor="expires" className="text-neutral-200">Expires In (days, optional)</Label>
+                    <Label htmlFor="expires" className="text-gray-700">Expires In (days, optional)</Label>
                     <Input
                       id="expires"
                       type="number"
@@ -308,7 +308,7 @@ export default function APIKeysPage() {
                         setExpiresInDays(e.target.value ? parseInt(e.target.value) : undefined)
                       }
                       placeholder="Leave empty for no expiration"
-                      className="mt-1 bg-neutral-900/50 border-neutral-800/50 text-white"
+                      className="mt-1 bg-blue-50/50 border-blue-200/50 text-gray-900"
                     />
                   </div>
 
@@ -323,7 +323,7 @@ export default function APIKeysPage() {
                     <Button
                       onClick={() => setShowCreateForm(false)}
                       variant="outline"
-                      className="flex-1 border-neutral-800/50 hover:bg-neutral-800/50"
+                      className="flex-1 border-blue-200/50 hover:bg-blue-100/50"
                     >
                       Cancel
                     </Button>
@@ -334,30 +334,30 @@ export default function APIKeysPage() {
 
             {/* API Keys List */}
             <div className="space-y-4">
-              <h2 className="text-xl font-semibold text-white">Your API Keys</h2>
+              <h2 className="text-xl font-semibold text-gray-900">Your API Keys</h2>
               {apiKeys.length === 0 ? (
-                <Card className="p-12 text-center bg-neutral-900/50 border-neutral-800/50">
-                  <div className="h-16 w-16 rounded-xl bg-neutral-800/50 flex items-center justify-center mx-auto mb-4">
-                    <IconKey className="w-8 h-8 text-neutral-600" />
+                <Card className="p-12 text-center bg-blue-50/50 border-blue-200/50">
+                  <div className="h-16 w-16 rounded-xl bg-blue-100/50 flex items-center justify-center mx-auto mb-4">
+                    <IconKey className="w-8 h-8 text-gray-500" />
                   </div>
-                  <p className="text-neutral-400">No API keys yet</p>
-                  <p className="text-sm text-neutral-500 mt-1">
+                  <p className="text-gray-500">No API keys yet</p>
+                  <p className="text-sm text-gray-400 mt-1">
                     Create your first API key to start using the API
                   </p>
                 </Card>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {apiKeys.map((key) => (
-                    <Card key={key.api_key_hash} className="p-6 bg-neutral-900/50 border-neutral-800/50 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/10 transition-all">
+                    <Card key={key.api_key_hash} className="p-6 bg-blue-50/50 border-blue-200/50 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/10 transition-all">
                       <div className="space-y-4">
                         <div className="flex items-start justify-between gap-4">
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2 mb-2">
-                              <div className="h-10 w-10 rounded-xl bg-neutral-800/50 flex items-center justify-center shrink-0">
+                              <div className="h-10 w-10 rounded-xl bg-blue-100/50 flex items-center justify-center shrink-0">
                                 <IconKey className="h-5 w-5 text-accent" />
                               </div>
                               <div className="flex-1 min-w-0">
-                                <h3 className="font-semibold text-white truncate">{key.key_name}</h3>
+                                <h3 className="font-semibold text-gray-900 truncate">{key.key_name}</h3>
                                 <Badge
                                   variant="secondary"
                                   className={
@@ -384,31 +384,31 @@ export default function APIKeysPage() {
                             </Button>
                           )}
                         </div>
-                        <div className="text-sm text-neutral-400 space-y-1.5">
+                        <div className="text-sm text-gray-500 space-y-1.5">
                           <p>
-                            <span className="font-medium text-neutral-300">Agent:</span> {getAgentName(key.agent_id)}
+                            <span className="font-medium text-gray-600">Agent:</span> {getAgentName(key.agent_id)}
                           </p>
                           <p>
-                            <span className="font-medium text-neutral-300">Permissions:</span>{" "}
+                            <span className="font-medium text-gray-600">Permissions:</span>{" "}
                             {key.permissions.join(", ")}
                           </p>
                           <p>
-                            <span className="font-medium text-neutral-300">Created:</span>{" "}
+                            <span className="font-medium text-gray-600">Created:</span>{" "}
                             {new Date(key.created_at * 1000).toLocaleDateString()}
                           </p>
                           {key.expires_at && (
                             <p>
-                              <span className="font-medium text-neutral-300">Expires:</span>{" "}
+                              <span className="font-medium text-gray-600">Expires:</span>{" "}
                               {new Date(key.expires_at * 1000).toLocaleDateString()}
                             </p>
                           )}
                           {key.last_used_at && (
                             <p>
-                              <span className="font-medium text-neutral-300">Last used:</span>{" "}
+                              <span className="font-medium text-gray-600">Last used:</span>{" "}
                               {new Date(key.last_used_at * 1000).toLocaleDateString()}
                             </p>
                           )}
-                          <p className="font-mono text-xs text-neutral-500">
+                          <p className="font-mono text-xs text-gray-400">
                             {key.api_key_hash.substring(0, 20)}...
                           </p>
                         </div>

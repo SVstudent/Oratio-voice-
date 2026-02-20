@@ -1,6 +1,6 @@
 const Anthropic = (props: React.SVGProps<SVGSVGElement>) => (
     <svg
-        fill="#000"
+        fill="currentColor"
         fillRule="evenodd"
         style={{
             flex: "none",

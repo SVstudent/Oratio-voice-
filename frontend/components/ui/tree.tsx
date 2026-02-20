@@ -98,7 +98,7 @@ interface TreeNodeTriggerProps {
 
 export function TreeNodeTrigger({ children, className }: TreeNodeTriggerProps) {
   return (
-    <div className={cn("flex items-center gap-1 py-1 px-2 rounded hover:bg-neutral-800/50 cursor-pointer", className)}>
+    <div className={cn("flex items-center gap-1 py-1 px-2 rounded hover:bg-blue-100/50 cursor-pointer", className)}>
       {children}
     </div>
   )
@@ -116,7 +116,7 @@ export function TreeNodeContent({ children, hasChildren }: TreeNodeContentProps)
 
   if (!hasChildren || !isExpanded) return null
 
-  return <div className="ml-4 border-l border-neutral-800 pl-2">{children}</div>
+  return <div className="ml-4 border-l border-blue-200 pl-2">{children}</div>
 }
 
 interface TreeExpanderProps {
@@ -141,7 +141,7 @@ export function TreeExpander({ hasChildren }: TreeExpanderProps) {
       }}
       className="w-4 h-4 flex items-center justify-center hover:bg-neutral-700 rounded"
     >
-      <ChevronRight className={cn("h-3 w-3 text-neutral-400 transition-transform", isExpanded && "rotate-90")} />
+      <ChevronRight className={cn("h-3 w-3 text-gray-500 transition-transform", isExpanded && "rotate-90")} />
     </button>
   )
 }
@@ -153,11 +153,11 @@ interface TreeIconProps {
 
 export function TreeIcon({ hasChildren, icon }: TreeIconProps) {
   if (icon) return <>{icon}</>
-  return hasChildren ? <Folder className="h-4 w-4 text-blue-400" /> : <File className="h-4 w-4 text-neutral-400" />
+  return hasChildren ? <Folder className="h-4 w-4 text-blue-400" /> : <File className="h-4 w-4 text-gray-500" />
 }
 
 export function TreeLabel({ children }: { children: React.ReactNode }) {
-  return <span className="text-neutral-200 flex-1">{children}</span>
+  return <span className="text-gray-700 flex-1">{children}</span>
 }
 
 const TreeNodeContext = React.createContext<{ nodeId: string } | undefined>(undefined)

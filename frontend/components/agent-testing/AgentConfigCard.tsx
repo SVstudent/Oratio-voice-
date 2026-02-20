@@ -11,39 +11,39 @@ interface AgentConfigCardProps {
 
 export function AgentConfigCard({ agent }: AgentConfigCardProps) {
   return (
-    <Card className="bg-neutral-900 border-neutral-800">
+    <Card className="bg-blue-50 border-blue-200">
       <div className="px-6 py-4">
         <div className="flex items-center gap-2 mb-4">
           <IconSettings className="h-5 w-5 text-accent" />
-          <h2 className="text-lg font-semibold text-white">Agent Configuration</h2>
+          <h2 className="text-lg font-semibold text-gray-900">Agent Configuration</h2>
         </div>
 
-        <Separator className="bg-neutral-800" />
+        <Separator className="bg-blue-100" />
         <div className="px-0 py-4 space-y-4">
           {/* Standard Operating Procedure */}
           <div>
-            <p className="text-sm text-neutral-500 mb-2">Standard Operating Procedure</p>
-            <div className="text-sm text-white bg-neutral-950 border border-neutral-800 rounded-lg p-3 whitespace-pre-wrap break-words">
+            <p className="text-sm text-gray-400 mb-2">Standard Operating Procedure</p>
+            <div className="text-sm text-gray-900 bg-white border border-blue-200 rounded-lg p-3 whitespace-pre-wrap break-words">
               {agent.sop}
             </div>
           </div>
 
-          <Separator className="bg-neutral-800" />
+          <Separator className="bg-blue-100" />
 
           {/* Knowledge Base Description */}
           <div>
-            <p className="text-sm text-neutral-500 mb-2">Knowledge Base Description</p>
-            <div className="text-sm text-white bg-neutral-950 border border-neutral-800 rounded-lg p-3 whitespace-pre-wrap break-words">
+            <p className="text-sm text-gray-400 mb-2">Knowledge Base Description</p>
+            <div className="text-sm text-gray-900 bg-white border border-blue-200 rounded-lg p-3 whitespace-pre-wrap break-words">
               {agent.knowledge_base_description}
             </div>
           </div>
 
-          <Separator className="bg-neutral-800" />
+          <Separator className="bg-blue-100" />
 
           {/* Human Handoff Description */}
           <div>
-            <p className="text-sm text-neutral-500 mb-2">Human Handoff Description</p>
-            <div className="text-sm text-white bg-neutral-950 border border-neutral-800 rounded-lg p-3 whitespace-pre-wrap break-words">
+            <p className="text-sm text-gray-400 mb-2">Human Handoff Description</p>
+            <div className="text-sm text-gray-900 bg-white border border-blue-200 rounded-lg p-3 whitespace-pre-wrap break-words">
               {agent.human_handoff_description}
             </div>
           </div>

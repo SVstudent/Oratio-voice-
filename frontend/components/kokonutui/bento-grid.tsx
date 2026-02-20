@@ -170,8 +170,8 @@ const SpotlightFeature = ({ items }: { items: string[] }) => {
                     transition={{ delay: 0.1 * index }}
                     className="flex items-center gap-2"
                 >
-                    <CheckCircle2 className="h-4 w-4 text-emerald-500 dark:text-emerald-400 flex-shrink-0" />
-                    <span className="text-sm text-neutral-700 dark:text-neutral-300">
+                    <CheckCircle2 className="h-4 w-4 text-emerald-500 flex-shrink-0" />
+                    <span className="text-sm text-neutral-700">
                         {item}
                     </span>
                 </motion.li>
@@ -215,10 +215,10 @@ const CounterAnimation = ({
 
     return (
         <div className="flex items-baseline gap-1">
-            <span className="text-3xl font-bold text-neutral-900 dark:text-neutral-100">
+            <span className="text-3xl font-bold text-neutral-900">
                 {count.toFixed(1).replace(/\.0$/, "")}
             </span>
-            <span className="text-xl font-medium text-neutral-900 dark:text-neutral-100">
+            <span className="text-xl font-medium text-neutral-900">
                 {suffix}
             </span>
         </div>
@@ -227,9 +227,9 @@ const CounterAnimation = ({
 
 const ChartAnimation = ({ value }: { value: number }) => {
     return (
-        <div className="mt-2 w-full h-2 bg-neutral-200 dark:bg-neutral-700 rounded-full overflow-hidden">
+        <div className="mt-2 w-full h-2 bg-neutral-200 rounded-full overflow-hidden">
             <motion.div
-                className="h-full bg-emerald-500 dark:bg-emerald-400 rounded-full"
+                className="h-full bg-emerald-500 rounded-full"
                 initial={{ width: 0 }}
                 animate={{ width: `${value}%` }}
                 transition={{ duration: 1.5, ease: "easeOut" }}
@@ -241,53 +241,53 @@ const ChartAnimation = ({ value }: { value: number }) => {
 const IconsFeature = () => {
     return (
         <div className="grid grid-cols-3 gap-4 mt-4">
-            <motion.div className="flex flex-col items-center gap-2 p-3 rounded-xl bg-gradient-to-b from-neutral-100/80 to-neutral-100 dark:from-neutral-800/80 dark:to-neutral-800 border border-neutral-200/50 dark:border-neutral-700/50 group transition-all duration-300 hover:border-neutral-300 dark:hover:border-neutral-600">
+            <motion.div className="flex flex-col items-center gap-2 p-3 rounded-xl bg-gradient-to-b from-neutral-100/80 to-neutral-100 border border-neutral-200/50 group transition-all duration-300 hover:border-neutral-300">
                 <div className="relative w-8 h-8 flex items-center justify-center">
-                    <OpenAI className="w-7 h-7 dark:hidden transition-transform " />
-                    <OpenAIDark className="w-7 h-7 hidden dark:block transition-transform " />
+                    <OpenAI className="w-7 h-7 transition-transform " />
+                    <OpenAIDark className="w-7 h-7 hidden transition-transform " />
                 </div>
-                <span className="text-xs font-medium text-center text-neutral-600 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-neutral-200">
+                <span className="text-xs font-medium text-center text-gray-500 group-hover:text-neutral-900">
                     OpenAI
                 </span>
             </motion.div>
-            <motion.div className="flex flex-col items-center gap-2 p-3 rounded-xl bg-gradient-to-b from-neutral-100/80 to-neutral-100 dark:from-neutral-800/80 dark:to-neutral-800 border border-neutral-200/50 dark:border-neutral-700/50 group transition-all duration-300 hover:border-neutral-300 dark:hover:border-neutral-600">
+            <motion.div className="flex flex-col items-center gap-2 p-3 rounded-xl bg-gradient-to-b from-neutral-100/80 to-neutral-100 border border-neutral-200/50 group transition-all duration-300 hover:border-neutral-300">
                 <div className="relative w-8 h-8 flex items-center justify-center">
-                    <Anthropic className="w-7 h-7 dark:hidden transition-transform " />
-                    <AnthropicDark className="w-7 h-7 hidden dark:block transition-transform " />
+                    <Anthropic className="w-7 h-7 transition-transform " />
+                    <AnthropicDark className="w-7 h-7 hidden transition-transform " />
                 </div>
-                <span className="text-xs font-medium text-center text-neutral-600 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-neutral-200">
+                <span className="text-xs font-medium text-center text-gray-500 group-hover:text-neutral-900">
                     Anthropic
                 </span>
             </motion.div>
-            <motion.div className="flex flex-col items-center gap-2 p-3 rounded-xl bg-gradient-to-b from-neutral-100/80 to-neutral-100 dark:from-neutral-800/80 dark:to-neutral-800 border border-neutral-200/50 dark:border-neutral-700/50 group transition-all duration-300 hover:border-neutral-300 dark:hover:border-neutral-600">
+            <motion.div className="flex flex-col items-center gap-2 p-3 rounded-xl bg-gradient-to-b from-neutral-100/80 to-neutral-100 border border-neutral-200/50 group transition-all duration-300 hover:border-neutral-300">
                 <div className="relative w-8 h-8 flex items-center justify-center">
                     <Google className="w-7 h-7 transition-transform " />
                 </div>
-                <span className="text-xs font-medium text-center text-neutral-600 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-neutral-200">
+                <span className="text-xs font-medium text-center text-gray-500 group-hover:text-neutral-900">
                     Google
                 </span>
             </motion.div>
-            <motion.div className="flex flex-col items-center gap-2 p-3 rounded-xl bg-gradient-to-b from-neutral-100/80 to-neutral-100 dark:from-neutral-800/80 dark:to-neutral-800 border border-neutral-200/50 dark:border-neutral-700/50 group transition-all duration-300 hover:border-neutral-300 dark:hover:border-neutral-600">
+            <motion.div className="flex flex-col items-center gap-2 p-3 rounded-xl bg-gradient-to-b from-neutral-100/80 to-neutral-100 border border-neutral-200/50 group transition-all duration-300 hover:border-neutral-300">
                 <div className="relative w-8 h-8 flex items-center justify-center">
                     <MistralAI className="w-7 h-7 transition-transform " />
                 </div>
-                <span className="text-xs font-medium text-center text-neutral-600 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-neutral-200">
+                <span className="text-xs font-medium text-center text-gray-500 group-hover:text-neutral-900">
                     Mistral
                 </span>
             </motion.div>
-            <motion.div className="flex flex-col items-center gap-2 p-3 rounded-xl bg-gradient-to-b from-neutral-100/80 to-neutral-100 dark:from-neutral-800/80 dark:to-neutral-800 border border-neutral-200/50 dark:border-neutral-700/50 group transition-all duration-300 hover:border-neutral-300 dark:hover:border-neutral-600">
+            <motion.div className="flex flex-col items-center gap-2 p-3 rounded-xl bg-gradient-to-b from-neutral-100/80 to-neutral-100 border border-neutral-200/50 group transition-all duration-300 hover:border-neutral-300">
                 <div className="relative w-8 h-8 flex items-center justify-center">
                     <DeepSeek className="w-7 h-7 transition-transform " />
                 </div>
-                <span className="text-xs font-medium text-center text-neutral-600 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-neutral-200">
+                <span className="text-xs font-medium text-center text-gray-500 group-hover:text-neutral-900">
                     DeepSeek
                 </span>
             </motion.div>
-            <motion.div className="flex flex-col items-center gap-2 p-3 rounded-xl bg-gradient-to-b from-neutral-100/80 to-neutral-100 dark:from-neutral-800/80 dark:to-neutral-800 border border-neutral-200/50 dark:border-neutral-700/50 group transition-all duration-300 hover:border-neutral-300 dark:hover:border-neutral-600">
+            <motion.div className="flex flex-col items-center gap-2 p-3 rounded-xl bg-gradient-to-b from-neutral-100/80 to-neutral-100 border border-neutral-200/50 group transition-all duration-300 hover:border-neutral-300">
                 <div className="relative w-8 h-8 flex items-center justify-center">
-                    <Plus className="w-6 h-6 text-neutral-600 dark:text-neutral-400 transition-transform " />
+                    <Plus className="w-6 h-6 text-gray-500 transition-transform " />
                 </div>
-                <span className="text-xs font-medium text-center text-neutral-600 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-neutral-200">
+                <span className="text-xs font-medium text-center text-gray-500 group-hover:text-neutral-900">
                     More
                 </span>
             </motion.div>
@@ -302,7 +302,7 @@ const TimelineFeature = ({
 }) => {
     return (
         <div className="mt-3 relative">
-            <div className="absolute top-0 bottom-0 left-[9px] w-[2px] bg-neutral-200 dark:bg-neutral-700" />
+            <div className="absolute top-0 bottom-0 left-[9px] w-[2px] bg-neutral-200" />
             {timeline.map((item) => (
                 <motion.div
                     key={`timeline-${item.year}-${item.event
@@ -315,12 +315,12 @@ const TimelineFeature = ({
                         delay: (0.15 * Number.parseInt(item.year)) % 10,
                     }}
                 >
-                    <div className="w-5 h-5 rounded-full bg-neutral-100 dark:bg-neutral-800 border-2 border-neutral-300 dark:border-neutral-600 flex-shrink-0 z-10 mt-0.5" />
+                    <div className="w-5 h-5 rounded-full bg-neutral-100 border-2 border-neutral-300 flex-shrink-0 z-10 mt-0.5" />
                     <div>
-                        <div className="text-sm font-medium text-neutral-900 dark:text-neutral-100">
+                        <div className="text-sm font-medium text-neutral-900">
                             {item.year}
                         </div>
-                        <div className="text-xs text-neutral-600 dark:text-neutral-400">
+                        <div className="text-xs text-gray-500">
                             {item.event}
                         </div>
                     </div>
@@ -361,13 +361,13 @@ const TypingCodeFeature = ({ text }: { text: string }) => {
     return (
         <div className="mt-3 relative">
             <div className="flex items-center gap-2 mb-2">
-                <div className="text-xs text-neutral-500 dark:text-neutral-400">
+                <div className="text-xs text-gray-400">
                     server.ts
                 </div>
             </div>
             <div
                 ref={terminalRef}
-                className="bg-neutral-900 dark:bg-black text-neutral-100 p-3 rounded-md text-xs font-mono h-[150px] overflow-y-auto"
+                className="bg-blue-50 text-neutral-100 p-3 rounded-md text-xs font-mono h-[150px] overflow-y-auto"
             >
                 <pre className="whitespace-pre-wrap">
                     {displayedText}
@@ -390,11 +390,11 @@ const MetricsFeature = ({
 }) => {
     const getColorClass = (color = "emerald") => {
         const colors = {
-            emerald: "bg-emerald-500 dark:bg-emerald-400",
-            blue: "bg-blue-500 dark:bg-blue-400",
-            violet: "bg-violet-500 dark:bg-violet-400",
-            amber: "bg-amber-500 dark:bg-amber-400",
-            rose: "bg-rose-500 dark:bg-rose-400",
+            emerald: "bg-emerald-500",
+            blue: "bg-blue-500",
+            violet: "bg-violet-500",
+            amber: "bg-amber-500",
+            rose: "bg-rose-500",
         };
         return colors[color as keyof typeof colors] || colors.emerald;
     };
@@ -412,7 +412,7 @@ const MetricsFeature = ({
                     transition={{ delay: 0.15 * index }}
                 >
                     <div className="flex justify-between items-center text-sm">
-                        <div className="text-neutral-700 dark:text-neutral-300 font-medium flex items-center gap-1.5">
+                        <div className="text-neutral-700 font-medium flex items-center gap-1.5">
                             {metric.label === "Uptime" && (
                                 <Clock className="w-3.5 h-3.5" />
                             )}
@@ -424,12 +424,12 @@ const MetricsFeature = ({
                             )}
                             {metric.label}
                         </div>
-                        <div className="text-neutral-700 dark:text-neutral-300 font-semibold">
+                        <div className="text-neutral-700 font-semibold">
                             {metric.value}
                             {metric.suffix}
                         </div>
                     </div>
-                    <div className="h-1.5 w-full bg-neutral-200 dark:bg-neutral-700 rounded-full overflow-hidden">
+                    <div className="h-1.5 w-full bg-neutral-200 rounded-full overflow-hidden">
                         <motion.div
                             className={`h-full rounded-full ${getColorClass(
                                 metric.color
@@ -519,18 +519,18 @@ function AIInput_Voice() {
                         "group w-16 h-16 rounded-xl flex items-center justify-center transition-colors",
                         submitted
                             ? "bg-none"
-                            : "bg-none hover:bg-black/10 dark:hover:bg-white/10"
+                            : "bg-none hover:bg-white/10"
                     )}
                     type="button"
                     onClick={handleClick}
                 >
                     {submitted ? (
                         <div
-                            className="w-6 h-6 rounded-sm animate-spin bg-black  dark:bg-white cursor-pointer pointer-events-auto"
+                            className="w-6 h-6 rounded-sm animate-spin bg-white cursor-pointer pointer-events-auto"
                             style={{ animationDuration: "3s" }}
                         />
                     ) : (
-                        <Mic className="w-6 h-6 text-black/70 dark:text-white/70" />
+                        <Mic className="w-6 h-6 text-gray-600" />
                     )}
                 </button>
 
@@ -538,8 +538,8 @@ function AIInput_Voice() {
                     className={cn(
                         "font-mono text-sm transition-opacity duration-300",
                         submitted
-                            ? "text-black/70 dark:text-white/70"
-                            : "text-black/30 dark:text-white/30"
+                            ? "text-gray-600"
+                            : "text-gray-400"
                     )}
                 >
                     {formatTime(time)}
@@ -552,8 +552,8 @@ function AIInput_Voice() {
                             className={cn(
                                 "w-0.5 rounded-full transition-all duration-300",
                                 submitted
-                                    ? "bg-black/50 dark:bg-white/50 animate-pulse"
-                                    : "bg-black/10 dark:bg-white/10 h-1"
+                                    ? "bg-blue-50/50 animate-pulse"
+                                    : "bg-white/10 h-1"
                             )}
                             style={
                                 submitted && isClient
@@ -567,7 +567,7 @@ function AIInput_Voice() {
                     ))}
                 </div>
 
-                <p className="h-4 text-xs text-black/70 dark:text-white/70">
+                <p className="h-4 text-xs text-gray-600">
                     {submitted ? "Listening..." : "Click to speak"}
                 </p>
             </div>
@@ -619,21 +619,18 @@ const BentoCard = ({ item }: { item: BentoItem }) => {
                 href={item.href || "#"}
                 className={`
                     group relative flex flex-col gap-4 h-full rounded-xl p-5
-                    bg-gradient-to-b from-neutral-50/60 via-neutral-50/40 to-neutral-50/30 
-                    dark:from-neutral-900/60 dark:via-neutral-900/40 dark:to-neutral-900/30
-                    border border-neutral-200/60 dark:border-neutral-800/60
+                    bg-gradient-to-b from-neutral-50/60 via-neutral-50/40 to-neutral-50/30
+                    border border-neutral-200/60
                     before:absolute before:inset-0 before:rounded-xl
-                    before:bg-gradient-to-b before:from-white/10 before:via-white/20 before:to-transparent 
-                    dark:before:from-black/10 dark:before:via-black/20 dark:before:to-transparent
+                    before:bg-gradient-to-b before:from-white/10 before:via-white/20 before:to-transparent
                     before:opacity-100 before:transition-opacity before:duration-500
-                    after:absolute after:inset-0 after:rounded-xl after:bg-neutral-50/70 dark:after:bg-neutral-900/70 after:z-[-1]
+                    after:absolute after:inset-0 after:rounded-xl after:bg-neutral-50/70 after:z-[-1]
                     backdrop-blur-[4px]
-                    shadow-[0_4px_20px_rgb(0,0,0,0.04)] dark:shadow-[0_4px_20px_rgb(0,0,0,0.2)]
-                    hover:border-neutral-300/50 dark:hover:border-neutral-700/50
-                    hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] dark:hover:shadow-[0_8px_30px_rgb(0,0,0,0.3)]
+                    shadow-[0_4px_20px_rgb(0,0,0,0.04)]
+                    hover:border-neutral-300/50
+                    hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)]
                     hover:backdrop-blur-[6px]
                     hover:bg-gradient-to-b hover:from-neutral-50/60 hover:via-neutral-50/30 hover:to-neutral-50/20
-                    dark:hover:from-neutral-800/60 dark:hover:via-neutral-800/30 dark:hover:to-neutral-800/20
                     transition-all duration-500 ease-out ${item.className}
                 `}
                 tabIndex={0}
@@ -645,15 +642,15 @@ const BentoCard = ({ item }: { item: BentoItem }) => {
                 >
                     <div className="space-y-2 flex-1 flex flex-col">
                         <div className="flex items-center justify-between">
-                            <h3 className="text-xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-100 group-hover:text-neutral-700 dark:group-hover:text-neutral-300 transition-colors duration-300">
+                            <h3 className="text-xl font-semibold tracking-tight text-neutral-900 group-hover:text-neutral-700 transition-colors duration-300">
                                 {item.title}
                             </h3>
-                            <div className="text-neutral-400 dark:text-neutral-500 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                            <div className="text-gray-500 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
                                 <ArrowUpRight className="h-5 w-5" />
                             </div>
                         </div>
 
-                        <p className="text-sm text-neutral-600 dark:text-neutral-400 tracking-tight">
+                        <p className="text-sm text-gray-500 tracking-tight">
                             {item.description}
                         </p>
 
@@ -676,10 +673,10 @@ const BentoCard = ({ item }: { item: BentoItem }) => {
                         {item.feature === "chart" && item.statistic && (
                             <div className="mt-auto pt-3">
                                 <div className="flex items-center justify-between mb-1">
-                                    <span className="text-sm font-medium text-neutral-700 dark:text-neutral-300">
+                                    <span className="text-sm font-medium text-neutral-700">
                                         {item.statistic.label}
                                     </span>
-                                    <span className="text-sm font-medium text-neutral-700 dark:text-neutral-300">
+                                    <span className="text-sm font-medium text-neutral-700">
                                         {item.statistic.end}
                                         {item.statistic.suffix}
                                     </span>
@@ -705,11 +702,11 @@ const BentoCard = ({ item }: { item: BentoItem }) => {
                         )}
 
                         {item.icons && !item.feature && (
-                            <div className="mt-auto pt-4 flex items-center flex-wrap gap-4 border-t border-neutral-200/70 dark:border-neutral-800/70">
-                                <OpenAI className="w-5 h-5 dark:hidden opacity-70 hover:opacity-100 transition-opacity" />
-                                <OpenAIDark className="w-5 h-5 hidden dark:block opacity-70 hover:opacity-100 transition-opacity" />
-                                <AnthropicDark className="w-5 h-5 dark:block hidden opacity-70 hover:opacity-100 transition-opacity" />
-                                <Anthropic className="w-5 h-5 dark:hidden opacity-70 hover:opacity-100 transition-opacity" />
+                            <div className="mt-auto pt-4 flex items-center flex-wrap gap-4 border-t border-neutral-200/70">
+                                <OpenAI className="w-5 h-5 opacity-70 hover:opacity-100 transition-opacity" />
+                                <OpenAIDark className="w-5 h-5 hidden opacity-70 hover:opacity-100 transition-opacity" />
+                                <AnthropicDark className="w-5 h-5 hidden opacity-70 hover:opacity-100 transition-opacity" />
+                                <Anthropic className="w-5 h-5 opacity-70 hover:opacity-100 transition-opacity" />
                                 <Google className="w-5 h-5 opacity-70 hover:opacity-100 transition-opacity" />
                                 <MistralAI className="w-5 h-5 opacity-70 hover:opacity-100 transition-opacity" />
                                 <DeepSeek className="w-5 h-5 opacity-70 hover:opacity-100 transition-opacity" />
@@ -724,7 +721,7 @@ const BentoCard = ({ item }: { item: BentoItem }) => {
 
 export default function BentoGrid() {
     return (
-        <section className="relative py-24 sm:py-32 bg-white dark:bg-black overflow-hidden">
+        <section className="relative py-24 sm:py-32 bg-white overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Bento Grid */}
                 <motion.div
@@ -757,15 +754,15 @@ export default function BentoGrid() {
                         </motion.div>
                         <motion.div
                             variants={fadeInUp}
-                            className="md:col-span-1 rounded-xl overflow-hidden bg-gradient-to-b from-neutral-50/80 to-neutral-50 dark:from-neutral-900/80 dark:to-neutral-900 border border-neutral-200/50 dark:border-neutral-800/50 hover:border-neutral-400/30 dark:hover:border-neutral-600/30 hover:shadow-lg hover:shadow-neutral-200/20 dark:hover:shadow-neutral-900/20 transition-all duration-300"
+                            className="md:col-span-1 rounded-xl overflow-hidden bg-gradient-to-b from-neutral-50/80 to-neutral-50 border border-neutral-200/50 hover:border-neutral-400/30 hover:shadow-lg hover:shadow-neutral-200/20 transition-all duration-300"
                         >
                             <div className="p-5">
                                 <div className="flex items-center justify-between mb-4">
-                                    <h3 className="text-xl font-semibold tracking-tight text-neutral-900 dark:text-neutral-100">
+                                    <h3 className="text-xl font-semibold tracking-tight text-neutral-900">
                                         Voice Assistant
                                     </h3>
                                 </div>
-                                <p className="text-sm text-neutral-600 dark:text-neutral-400 tracking-tight mb-4">
+                                <p className="text-sm text-gray-500 tracking-tight mb-4">
                                     Interact with our AI using natural voice
                                     commands. Experience seamless voice-driven
                                     interactions with advanced speech

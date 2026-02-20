@@ -1,45 +1,45 @@
 "use client"
 
-import { Bot, Zap, Activity, Code2, Database, Shield } from "lucide-react"
+import { FlaskConical, Phone, Activity, Zap, Sparkles, Building2 } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { AnimatedWaves } from "./animated-waves"
 
 const features = [
   {
-    icon: Bot,
-    title: "No-Code Agent Builder",
+    icon: FlaskConical,
+    title: "Script A/B Testing",
     description:
-      "Create sophisticated voice and conversational AI agents without writing a single line of code. Upload your SOPs and knowledge bases, and let Oratio handle the rest.",
+      "Test multiple cold call script variations against AI prospects. Compare conversion rates, objection handling, and overall effectiveness side by side.",
+  },
+  {
+    icon: Phone,
+    title: "AI Voice Calls",
+    description:
+      "Simulate real cold calls with AI-powered voice prospects using MiniMax. Practice your pitch, handle objections, and refine your delivery before going live.",
+  },
+  {
+    icon: Activity,
+    title: "Real-Time Analytics",
+    description:
+      "Track call duration, sentiment analysis, and conversion metrics with Datadog-powered dashboards. Identify what works and iterate fast.",
   },
   {
     icon: Zap,
     title: "Instant Deployment",
     description:
-      "Deploy your AI agents to production in minutes with AWS AgentCore. Get REST API and WebSocket endpoints automatically configured for seamless integration.",
+      "Deploy your outreach agents in seconds with AWS Bedrock AgentCore and Chameleon architecture. One runtime for unlimited agents.",
   },
   {
-    icon: Activity,
-    title: "Real-Time Monitoring",
+    icon: Sparkles,
+    title: "AI Script Optimization",
     description:
-      "Monitor live conversations with comprehensive dashboards. Track performance metrics, conversation quality, and user interactions in real-time.",
+      "Use CopilotKit's AI copilot to analyze and improve your scripts. Get real-time suggestions for better openers, objection handlers, and closing techniques.",
   },
   {
-    icon: Code2,
-    title: "Multi-Modal AI",
+    icon: Building2,
+    title: "Enterprise Scale",
     description:
-      "Leverage AWS Bedrock's Nova Sonic for natural voice interactions and Claude for intelligent text processing. Switch seamlessly between voice and text modes.",
-  },
-  {
-    icon: Database,
-    title: "Knowledge Management",
-    description:
-      "Upload and manage your organization's knowledge bases and SOPs. Oratio automatically indexes and retrieves relevant information for your agents.",
-  },
-  {
-    icon: Shield,
-    title: "Enterprise Security",
-    description:
-      "Multi-tenant architecture with enterprise-grade security. Infrastructure built on AWS with data isolation and encryption at rest and in transit.",
+      "Run unlimited outreach agents on a single runtime with Chameleon architecture. Multi-tenant, secure, and built on AWS infrastructure.",
   },
 ]
 
@@ -51,10 +51,10 @@ export function FeaturesSection() {
       <div className="container relative mx-auto px-4 md:px-6">
         <div className="mx-auto mb-16 max-w-3xl text-center">
           <h2 className="mb-4 text-balance text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
-            Everything you need to build AI agents
+            Everything you need to master cold outreach
           </h2>
           <p className="text-pretty text-lg text-muted-foreground">
-            Enterprise-grade features designed for teams building the future of conversational AI.
+            AI-powered tools to test, optimize, and scale your cold outreach scripts.
           </p>
         </div>
 

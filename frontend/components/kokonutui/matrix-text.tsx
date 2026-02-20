@@ -136,7 +136,7 @@ const MatrixText = ({
     return (
         <div
             className={cn(
-                "flex items-center justify-center text-black dark:text-white",
+                "flex items-center justify-center text-black",
                 className
             )}
             aria-label="Matrix text animation"

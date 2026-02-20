@@ -22,10 +22,7 @@ import { cn } from "@/lib/utils";
 const GLASS_SHADOW_LIGHT =
   "shadow-[0_0_6px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3px_rgba(0,0,0,0.9),inset_-3px_-3px_0.5px_-3px_rgba(0,0,0,0.85),inset_1px_1px_1px_-0.5px_rgba(0,0,0,0.6),inset_-1px_-1px_1px_-0.5px_rgba(0,0,0,0.6),inset_0_0_6px_6px_rgba(0,0,0,0.12),inset_0_0_2px_2px_rgba(0,0,0,0.06),0_0_12px_rgba(255,255,255,0.15)]";
 
-const GLASS_SHADOW_DARK =
-  "dark:shadow-[0_0_8px_rgba(0,0,0,0.03),0_2px_6px_rgba(0,0,0,0.08),inset_3px_3px_0.5px_-3.5px_rgba(255,255,255,0.09),inset_-3px_-3px_0.5px_-3.5px_rgba(255,255,255,0.85),inset_1px_1px_1px_-0.5px_rgba(255,255,255,0.6),inset_-1px_-1px_1px_-0.5px_rgba(255,255,255,0.6),inset_0_0_6px_6px_rgba(255,255,255,0.12),inset_0_0_2px_2px_rgba(255,255,255,0.06),0_0_12px_rgba(0,0,0,0.15)]";
-
-const GLASS_SHADOW = `${GLASS_SHADOW_LIGHT} ${GLASS_SHADOW_DARK}`;
+const GLASS_SHADOW = GLASS_SHADOW_LIGHT;
 
 const DEFAULT_GLASS_FILTER_SCALE = 30;
 const BUTTON_GLASS_FILTER_SCALE = 70;
@@ -181,7 +178,7 @@ function LiquidGlassCard({
 
       <div className="relative z-10">{children}</div>
 
-      <div className="pointer-events-none absolute inset-0 z-20 rounded-lg bg-gradient-to-r from-transparent via-black/5 to-transparent opacity-0 transition-opacity duration-200 group-hover:opacity-100 dark:via-white/5" />
+      <div className="pointer-events-none absolute inset-0 z-20 rounded-lg bg-gradient-to-r from-transparent via-black/5 to-transparent opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
     </Card>
   );
 }
@@ -269,7 +266,7 @@ const ProgressBar = React.memo(
 
     return (
       <>
-        <div className="flex justify-between font-medium text-xs text-zinc-500 dark:text-zinc-400">
+        <div className="flex justify-between font-medium text-xs text-zinc-500">
           <span className="tabular-nums">{formatTime(currentTime)}</span>
           <span className="tabular-nums">{formatTime(totalDuration)}</span>
         </div>
@@ -278,7 +275,7 @@ const ProgressBar = React.memo(
           aria-valuemax={totalDuration}
           aria-valuemin={MIN_TIME}
           aria-valuenow={currentTime}
-          className="relative z-10 h-1 w-full cursor-pointer overflow-hidden rounded-full bg-zinc-200 dark:bg-zinc-800"
+          className="relative z-10 h-1 w-full cursor-pointer overflow-hidden rounded-full bg-zinc-200"
           onClick={handleClick}
           onKeyDown={handleKeyDown}
           role="slider"
@@ -330,9 +327,9 @@ export function NotificationCenter() {
 
   return (
     <div className="w-full max-w-sm">
-      <LiquidGlassCard className="gap-3.5 rounded-3xl border border-zinc-200/60 bg-gradient-to-br from-zinc-50 to-zinc-100 p-4 shadow-xl dark:border-zinc-700/60 dark:from-zinc-900 dark:to-black">
+      <LiquidGlassCard className="gap-3.5 rounded-3xl border border-zinc-200/60 bg-gradient-to-br from-zinc-50 to-zinc-100 p-4 shadow-xl">
         <div className="flex items-center gap-3">
-          <div className="relative mr-2 mb-4 h-16 w-16 shrink-0 overflow-hidden rounded-2xl bg-gradient-to-br from-pink-400 via-pink-300 to-rose-200 shadow-lg ring-1 ring-black/5 dark:shadow-xl">
+          <div className="relative mr-2 mb-4 h-16 w-16 shrink-0 overflow-hidden rounded-2xl bg-gradient-to-br from-pink-400 via-pink-300 to-rose-200 shadow-lg ring-1 ring-black/5">
             <Image
               alt="Album Art for Glow by Echo"
               className="h-full w-full object-cover"
@@ -343,10 +340,10 @@ export function NotificationCenter() {
           </div>
 
           <div className="flex-1 overflow-hidden">
-            <h3 className="overflow-hidden text-ellipsis whitespace-nowrap font-semibold text-lg text-zinc-900 dark:text-white">
+            <h3 className="overflow-hidden text-ellipsis whitespace-nowrap font-semibold text-lg text-zinc-900">
               Glow
             </h3>
-            <p className="mt-0.5 text-sm text-zinc-600 dark:text-zinc-400">
+            <p className="mt-0.5 text-sm text-zinc-600">
               Echo
             </p>
           </div>
@@ -365,7 +362,7 @@ export function NotificationCenter() {
             <div className="flex items-center justify-center gap-2">
               <LiquidButton
                 aria-label="Previous track"
-                className="h-10 w-10 rounded-full bg-transparent text-zinc-700 transition-colors hover:bg-zinc-200/80 dark:text-zinc-300 dark:hover:bg-zinc-800/80"
+                className="h-10 w-10 rounded-full bg-transparent text-zinc-700 transition-colors hover:bg-zinc-200/80"
                 size="icon"
                 variant="ghost"
               >
@@ -373,7 +370,7 @@ export function NotificationCenter() {
               </LiquidButton>
               <LiquidButton
                 aria-label={isPlaying ? "Pause" : "Play"}
-                className="h-11 w-11 rounded-full bg-transparent text-zinc-700 transition-colors hover:bg-zinc-200/80 dark:text-zinc-300 dark:hover:bg-zinc-800/80"
+                className="h-11 w-11 rounded-full bg-transparent text-zinc-700 transition-colors hover:bg-zinc-200/80"
                 onClick={handlePlayPause}
                 size="icon"
                 variant="ghost"
@@ -386,7 +383,7 @@ export function NotificationCenter() {
               </LiquidButton>
               <LiquidButton
                 aria-label="Next track"
-                className="h-10 w-10 rounded-full bg-transparent text-zinc-700 transition-colors hover:bg-zinc-200/80 dark:text-zinc-300 dark:hover:bg-zinc-800/80"
+                className="h-10 w-10 rounded-full bg-transparent text-zinc-700 transition-colors hover:bg-zinc-200/80"
                 size="icon"
                 variant="ghost"
               >
@@ -395,7 +392,7 @@ export function NotificationCenter() {
             </div>
             <LiquidButton
               aria-label="More options"
-              className="h-10 w-10 rounded-full bg-transparent text-zinc-700 transition-colors hover:bg-zinc-200/80 dark:text-zinc-300 dark:hover:bg-zinc-800/80"
+              className="h-10 w-10 rounded-full bg-transparent text-zinc-700 transition-colors hover:bg-zinc-200/80"
               size="icon"
               variant="ghost"
             >
